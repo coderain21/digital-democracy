@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
 
 const login = async (req,res)=>{
     const {email,password} =req.body;
@@ -7,15 +8,17 @@ const login = async (req,res)=>{
     }
     try {
         const user = await User.findOne({email:email}).exec();
-        if(user){
-            if(password === user.password){
-                res.status(200).json({message:"Login success", user:user});
-            } else {
-                res.status(401).json({message: "Wrong credentials"});
-            }
-         } else {
-             res.status(401).json({message:"Wrong credentials"});
-         }
+        if (!user){
+            return res.status(401).json({message:"Wrong credentials"});
+        }
+
+        const pwdMatch = await bcrypt.compare(password, user.password);
+        if (pwdMatch) {
+            res.status(200).json({message:"Login success", user:user});
+        }
+        else {
+            res.status(401).json({message:"Wrong credentials"});
+        }
     } catch(err) {
         console.error(err);
     }
