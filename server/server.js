@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const verifyJWT = require('../src/middleware/verifyJWT');
 
 //Initializing our app and setting our port - 8000 is for local development.
 const app = express()
@@ -22,6 +24,7 @@ connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
 
 // domain needs to be updated
 const whitelist = ['http://localhost:3000'];
@@ -41,10 +44,13 @@ app.use(cors(corsOptions));
 // HTTP request logger
 app.use(morgan('tiny'));
 app.use('/politician', require('../src/routes/api/politician'));
-app.use('/user', require('../src/routes/user'));
 app.use('/login', require('../src/routes/login'));
 app.use('/signup', require('../src/routes/signup'));
 app.use('/recaptcha', require('../src/routes/recaptcha'));
+app.use('/refreshToken', require('../src/routes/refreshToken'));
+
+app.use(verifyJWT);
+app.use('/user', require('../src/routes/user'));
 
 mongoose.connection.once('open', () => {
     console.log('Connected to DD database with MongoDB');
