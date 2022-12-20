@@ -1,11 +1,11 @@
 import React from 'react'
 import LoginComponent from './logincomponent/LoginComponent'
 
-function Login({setLoginUser}) {
+function Login({setAuth}) {
   return (
     <>
     <div className="mt-5" style={{textAlign: 'center'}}>Login</div>
-    <LoginComponent setLoginUser={setLoginUser}/>
+    <LoginComponent setAuth={setAuth}/>
     </>
   )
 }

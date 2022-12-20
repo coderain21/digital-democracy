@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import GoogleLoginComponent from '../../sign-up/signupcomponent/GoogleLogin';
 
-function LoginComponent ({setLoginUser}) {
+function LoginComponent ({setAuth}) {
     const navigate = useNavigate();
     const [user,setUser] = useState({
         name:"",
@@ -20,35 +20,39 @@ function LoginComponent ({setLoginUser}) {
         });
     }
 
-    const navigateToHome = ()=>{
-        navigate('/');
-    }
-    
     const handleRecaptcha = async (e) => {
         e.preventDefault();
         const token = await recaptchaRef.current.executeAsync();
-        console.log(token);
         recaptchaRef.current.reset();
-        await axios.post("http://localhost:8000/recaptcha", {token})
-        .then(res =>  console.log(res))
-        .catch((error) => {
-        console.log(error);
-        })
+        try {
+            const res = await axios.post("http://localhost:8000/recaptcha", {token});
+            if (res.status === 200) {
+                console.log(res.data.message);
+            }
+        } catch(err) {
+            console.error(err);
+        }
     }
 
-    const login =()=>{
+    const login = async ()=>{
         console.log("logging in");
-        axios.post("http://localhost:8000/login",user)
-        .then(res=>{
+        try {
+            const res = await axios.post("http://localhost:8000/login",user);
             alert(res.data.message);
-            if (res.status === 200){
-                setLoginUser(res.data.user);
-                navigateToHome();
+            if (res.status === 200) {
+                setAuth(res.data.accessToken);
+                // just to test if accessToken is working
+                const foundUser = await axios.get("http://localhost:8000/user", 
+                    {
+                    headers: {
+                        'Authorization': 'Bearer ' + res.data.accessToken
+                    }});
+                console.log(foundUser.data.message);
+                navigate('/');
             }
-            })
-        .catch((error) => {
-            alert(error.response.data.message)
-        })
+        } catch(err) {
+            alert(err.response.data.message);
+        }
     }
 
     return (
@@ -57,7 +61,7 @@ function LoginComponent ({setLoginUser}) {
                 Login To Your Account
             </div>
             <div className="container w-25" >
-                <GoogleLoginComponent setLoginUser={setLoginUser}>
+                <GoogleLoginComponent setAuth={setAuth}>
                 </GoogleLoginComponent>
             </div>
             <div className="form-group row">

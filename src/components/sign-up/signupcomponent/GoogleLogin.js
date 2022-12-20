@@ -4,7 +4,7 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
-function GoogleLoginComponent ({setLoginUser}) {
+function GoogleLoginComponent ({setAuth}) {
     const navigate = useNavigate();
     const [user,setUser] = useState({
         name:"",
@@ -46,7 +46,7 @@ function GoogleLoginComponent ({setLoginUser}) {
                     axios.post("http://localhost:8000/login",user)
                         .then(res=>{
                             alert(res.data.message);
-                            setLoginUser(res.data.user);
+                            setAuth(res.data.user);
                             navigateToHome();
                         })
                 }
