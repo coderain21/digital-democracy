@@ -45,6 +45,7 @@ app.use(cors(corsOptions));
 app.use(morgan('tiny'));
 app.use('/politician', require('../src/routes/api/politician'));
 app.use('/login', require('../src/routes/login'));
+app.use('/googleLogin', require('../src/routes/googleLogin'));
 app.use('/signup', require('../src/routes/signup'));
 app.use('/recaptcha', require('../src/routes/recaptcha'));
 app.use('/refreshToken', require('../src/routes/refreshToken'));
