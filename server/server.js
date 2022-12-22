@@ -36,7 +36,8 @@ const corsOptions = {
             callback(new Error('Not allowed by CORS'))
         }
     },
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    credentials: true
 };
 
 app.use(cors(corsOptions));
@@ -47,6 +48,7 @@ app.use('/politician', require('../src/routes/api/politician'));
 app.use('/login', require('../src/routes/login'));
 app.use('/googleLogin', require('../src/routes/googleLogin'));
 app.use('/signup', require('../src/routes/signup'));
+app.use('/logout', require('../src/routes/logout'));
 app.use('/recaptcha', require('../src/routes/recaptcha'));
 app.use('/refreshToken', require('../src/routes/refreshToken'));
 

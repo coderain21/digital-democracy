@@ -10,7 +10,10 @@ function GoogleLoginComponent ({setAuth}) {
 
     const onSuccess = async (credRes) => {
         try {
-            const res = await axios.post("http://localhost:8000/googleLogin", credRes);
+            const res = await axios.post("http://localhost:8000/googleLogin", credRes, {
+                withCredentials: true
+                }
+            );
             alert(res.data.message);
             setAuth(res.data.accessToken);
             navigate('/');

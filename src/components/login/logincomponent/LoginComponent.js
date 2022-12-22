@@ -37,7 +37,9 @@ function LoginComponent ({setAuth}) {
     const login = async ()=>{
         console.log("logging in");
         try {
-            const res = await axios.post("http://localhost:8000/login",user);
+            const res = await axios.post("http://localhost:8000/login",user, {
+                withCredentials: true
+            });
             alert(res.data.message);
             if (res.status === 200) {
                 setAuth(res.data.accessToken);

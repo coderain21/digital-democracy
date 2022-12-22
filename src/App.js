@@ -6,6 +6,7 @@ import Home from './components/home/Home';
 import PoliticianComparison from './components/features/PoliticianComparison/PoliticianComparison';
 import SignUp from './components/sign-up/SignUp';
 import Login from './components/login/Login';
+import Logout from './components/logout/Logout';
 import Dashboard from './components/features/Dashboard/Dashboard';
 import PoliticianProfile from './components/features/PoliticianProfile/ProfileFull';
 import Navigation from './components/Nav/Navigation'
@@ -25,6 +26,7 @@ function App() {
         <Route path="/profile/:search" element={<PoliticianProfile />} />
         <Route path="/signup" element={<SignUp setAuth={setAuth}/>} />
         <Route path="/login" element={<Login setAuth={setAuth} />}/>
+        <Route path="/logout" element={<Logout setAuth={setAuth} />}/>
         <Route path="/dashboard/" element={<Dashboard />} />
         <Route path="/dashboard/:address" element={<Dashboard />} />
         <Route path="/districtmap" element={<DistrictMapPage />} />
