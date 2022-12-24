@@ -1,11 +1,13 @@
-import React,{useState, useRef} from 'react';
+import React,{useState, useRef, useContext} from 'react';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import GoogleLoginComponent from '../../sign-up/signupcomponent/GoogleLogin';
+import AuthContext from '../../../context/AuthContext';
 
-function LoginComponent ({setAuth}) {
+function LoginComponent () {
     const navigate = useNavigate();
+    const {setAuth} = useContext(AuthContext);
     const [user,setUser] = useState({
         name:"",
         password: ""
@@ -42,14 +44,8 @@ function LoginComponent ({setAuth}) {
             });
             alert(res.data.message);
             if (res.status === 200) {
-                setAuth(res.data.accessToken);
-                // just to test if accessToken is working
-                const foundUser = await axios.get("http://localhost:8000/user", 
-                    {
-                    headers: {
-                        'Authorization': 'Bearer ' + res.data.accessToken
-                    }});
-                console.log(foundUser.data.message);
+                const accessToken  = res.data.accessToken
+                setAuth({accessToken});
                 navigate('/');
             }
         } catch(err) {
@@ -63,7 +59,7 @@ function LoginComponent ({setAuth}) {
                 Login To Your Account
             </div>
             <div className="container w-25" >
-                <GoogleLoginComponent setAuth={setAuth}>
+                <GoogleLoginComponent >
                 </GoogleLoginComponent>
             </div>
             <div className="form-group row">

@@ -1,10 +1,10 @@
 import React from 'react'
 import LogoutComponent from './logoutcomponent/LogoutComponent'
 
-function Logout({setAuth}) {
+function Logout() {
   return (
     <>
-    <LogoutComponent setAuth={setAuth}/>
+    <LogoutComponent />
     </>
   )
 }

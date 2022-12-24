@@ -16,7 +16,6 @@ import BillFeed from './components/features/BillFeed/BillFeed';
 
 
 function App() {
-  const [auth, setAuth] = useState({})
   return (
     <BrowserRouter>
       <Navigation />
@@ -24,9 +23,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/comparison/" element={<PoliticianComparison />} />
         <Route path="/profile/:search" element={<PoliticianProfile />} />
-        <Route path="/signup" element={<SignUp setAuth={setAuth}/>} />
-        <Route path="/login" element={<Login setAuth={setAuth} />}/>
-        <Route path="/logout" element={<Logout setAuth={setAuth} />}/>
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />}/>
+        <Route path="/logout" element={<Logout />}/>
         <Route path="/dashboard/" element={<Dashboard />} />
         <Route path="/dashboard/:address" element={<Dashboard />} />
         <Route path="/districtmap" element={<DistrictMapPage />} />

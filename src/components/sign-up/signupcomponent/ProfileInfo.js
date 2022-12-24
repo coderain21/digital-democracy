@@ -1,12 +1,14 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useContext} from 'react';
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import GoogleLoginComponent from './GoogleLogin';
 import PasswordStrengthBar from 'react-password-strength-bar';
+import AuthContext from '../../../context/AuthContext';
 
-function ProfileInfo({user, setUser, page, setPage, setAuth}){
+function ProfileInfo({user, setUser, page, setPage}){
 
     const recaptchaRef = useRef(null);
+    const {setAuth} = useContext(AuthContext);
 
     const handleChange = e =>{
         const {name,value} = e.target;
@@ -39,7 +41,7 @@ function ProfileInfo({user, setUser, page, setPage, setAuth}){
     const onChangeScore = (score, feedback) => {
         setPasswordScore(score);
     }
-    const signup = ()=>{
+    const signup = async ()=>{
         const {name,email,password} = user;
         if (name && email && password){
             if (!isValidEmail(email)){
@@ -50,11 +52,20 @@ function ProfileInfo({user, setUser, page, setPage, setAuth}){
             }
             else {
                 try {
-                    const res = axios.post("http://localhost:8000/signup", user);
+                    const res = await axios.post("http://localhost:8000/signup", user);
                     console.log(res.data.message);
                     if (res.status === 201){
+                        const loginRes = await axios.post("http://localhost:8000/login", user, {
+                            withCredentials: true
+                        });
+                        console.log(loginRes.data.message);
+                        if (loginRes.status === 200) {
+                            const accessToken = loginRes.data.accessToken;
+                            setAuth({accessToken});
+                        }
                         setPage(page + 1);
                     }
+
                 } catch(err) {
                 console.error(err);
                 }
@@ -68,7 +79,7 @@ function ProfileInfo({user, setUser, page, setPage, setAuth}){
     return ( 
         <div className="row text-center">
             <div className="container w-25">
-              <GoogleLoginComponent setAuth={setAuth}>
+              <GoogleLoginComponent >
               </GoogleLoginComponent>
             </div>
             <div className="col-md-12">

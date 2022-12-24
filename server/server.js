@@ -52,9 +52,7 @@ app.use('/logout', require('../src/routes/logout'));
 app.use('/recaptcha', require('../src/routes/recaptcha'));
 app.use('/refreshToken', require('../src/routes/refreshToken'));
 
-// verifyJWT commented out so it is only applied to individual functions
-// for testing purposes
-//app.use(verifyJWT);
+app.use(verifyJWT);
 app.use('/user', require('../src/routes/user'));
 
 mongoose.connection.once('open', () => {

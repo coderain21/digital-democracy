@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import AuthContext from '../../../context/AuthContext';
 
 
-function GoogleLoginComponent ({setAuth}) {
+function GoogleLoginComponent () {
     const navigate = useNavigate();
+    const {setAuth} = useContext(AuthContext);
     const clientId = '809363406953-ud4ktm7gi34c5mm4qhkqh00o90mnq5jc.apps.googleusercontent.com';
 
     const onSuccess = async (credRes) => {
@@ -15,7 +17,8 @@ function GoogleLoginComponent ({setAuth}) {
                 }
             );
             alert(res.data.message);
-            setAuth(res.data.accessToken);
+            const accessToken =res.data.accessToken
+            setAuth({accessToken});
             navigate('/');
         } catch(err) {
             console.error(err);

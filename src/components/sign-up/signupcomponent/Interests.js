@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import AuthContext from '../../../context/AuthContext';
 
 function Interests({user, setUser, page, setPage}){
+    const {auth} = useContext(AuthContext);
     const handleChange = () => {
         console.log("handle change");
         var array = [];
@@ -26,7 +28,11 @@ function Interests({user, setUser, page, setPage}){
         e.preventDefault();
         const {name,email,password} = user;
         if (name && email && password){
-            await axios.put("http://localhost:8000/user", user);
+            const res = await axios.put("http://localhost:8000/user", user, {
+                headers: {
+                    'Authorization': 'Bearer ' + auth.accessToken
+                }});
+            console.log(res.data.message);
             navigateToHome();
             alert("Signup successful");
         }
