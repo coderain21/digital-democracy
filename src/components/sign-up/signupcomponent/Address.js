@@ -1,48 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Address.css";
 
 function Address({user, setUser, page, setPage}){
+    const [suggestions, setSuggestions] = useState([]);
 
-    function setSuggestions(input) {
-
-        clearSuggestions();
+    function handleAddress(input) {
         const storeSuggestions = function (predictions, status) {
             if (status !== window.google.maps.places.PlacesServiceStatus.OK || !predictions) {
               alert(status);
               return;
             }
         
-            const dropdownlist = document.getElementById('dropdownlist');
+            const newSuggestions = [];
             predictions.forEach((prediction) => {
-                var item = document.createElement('li');
-                item.className = 'list-group-item';
-                item.addEventListener('click',handleSelection);
-                item.appendChild(document.createTextNode(prediction.description));
-                dropdownlist.appendChild(item);
+                newSuggestions.push(prediction.description);
             });
-          };
+            setSuggestions(newSuggestions);
+        };
 
         const autocomplete = new window.google.maps.places.AutocompleteService();
         autocomplete.getPlacePredictions({ input: input, types: ["address"] }, storeSuggestions);
         
-        console.log('added dropdown');
-    }
-
-    function clearSuggestions() {
-        const dropdownlist = document.getElementById('dropdownlist');
-        while (dropdownlist.firstChild) {
-            dropdownlist.removeChild(dropdownlist.firstChild);
-        }
     }
 
     function deployDropdown() {
-        console.log("Showing Dropdown");
         var dropdown = document.getElementById("suggestions");
         dropdown.classList.add("show");
         dropdown.classList.remove("hide");
       }
     function hideDropdown() {
-        console.log("Hiding Dropdown");
         var dropdown = document.getElementById("suggestions");
         if (dropdown){
             dropdown.classList.add("hide");
@@ -53,15 +39,15 @@ function Address({user, setUser, page, setPage}){
     const handleChange = e =>{
         const {name,value} = e.target;
         setUser({
-        ...user,//spread operator 
+        ...user,
         [name]:value
         });
         if (name === "address"){
             if (value === ""){
-                clearSuggestions();
+                setSuggestions([]);
             }
             else {
-            setSuggestions(value);
+            handleAddress(value);
             }
         };
         
@@ -71,15 +57,15 @@ function Address({user, setUser, page, setPage}){
         const {name} = e.target;
         if (name === "address"){
             setUser({
-                ...user,//spread operator 
+                ...user,
                 zipcode: ""
                 });
             deployDropdown();
         }
         if (name === "zipcode"){
-            clearSuggestions();
+            setSuggestions([]);
             setUser({
-                ...user,//spread operator 
+                ...user,
                 address: ""
                 });
         }
@@ -88,10 +74,9 @@ function Address({user, setUser, page, setPage}){
     const handleSelection = e => {
         const value = e.target.textContent;
         setUser({
-        ...user,//spread operator 
+        ...user,
         address:value
         });
-        console.log("selection made");
     }
 
     const windowOnclick = e => {
@@ -129,6 +114,15 @@ function Address({user, setUser, page, setPage}){
                         </div>
                         <div id="suggestions" className="position-absolute w-100">
                             <ul id="dropdownlist" className="list-group">
+                                {suggestions.map((suggestion) => (
+                                    <li
+                                        className='list-group-item'
+                                        onClick={handleSelection}
+                                        key={suggestion}
+                                    >
+                                        {suggestion}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div>

@@ -1,12 +1,15 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import AuthContext from '../../../context/AuthContext';
 
 function Interests({user, setUser, page, setPage}){
+    const navigate = useNavigate();
     const {auth} = useContext(AuthContext);
+    // interests array needs to be updated with desired values
+    const interestOptions = ['technology', 'economy', 'environment'];
+
     const handleChange = () => {
-        console.log("handle change");
         var array = [];
         var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
 
@@ -14,14 +17,9 @@ function Interests({user, setUser, page, setPage}){
             array.push(checkboxes[i].value);
         }
         setUser({
-            ...user,//spread operator 
+            ...user,
             interests: array
             });
-    }
-    
-    const navigate = useNavigate();
-    const navigateToHome = ()=>{
-        navigate('/');
     }
 
     const updateInfo = async (e) => {
@@ -33,7 +31,7 @@ function Interests({user, setUser, page, setPage}){
                     'Authorization': 'Bearer ' + auth.accessToken
                 }});
             console.log(res.data.message);
-            navigateToHome();
+            navigate('/');
             alert("Signup successful");
         }
         else{
@@ -45,30 +43,6 @@ function Interests({user, setUser, page, setPage}){
         setPage(page - 1);
     };
 
-
-    const interestOptions = ['technology', 'economy', 'environment'];
-
-    useEffect(() => {
-        const interests = document.getElementById('interests')
-        if (interests.children.length=== 0){
-            for (var i = 0; i < interestOptions.length; i++){
-                var x = document.createElement("INPUT");
-                x.setAttribute("type", "checkbox");
-                x.className = 'btn-check';
-                x.value = interestOptions[i];
-                x.id = 'checkbox-' + interestOptions[i];
-                x.addEventListener('click',handleChange);
-                var y = document.createElement('LABEL');
-                y.textContent = interestOptions[i];
-                y.className = 'btn btn-primary';
-                y.setAttribute('for', x.id);
-                interests.appendChild(x);
-                interests.appendChild(y);
-            }
-        }
-        console.log('added buttons');
-    });
-
     return ( 
         <div className="row text-center">
             <div className="col-md-12">
@@ -77,6 +51,23 @@ function Interests({user, setUser, page, setPage}){
             <div className="col-md-12">
                 <form action="#">
                       <div className="input-group d-inline-flex flex-column w-25" id="interests">
+                        {interestOptions.map((interest) => (
+                            <div key={'checkbox' + interest}>
+                                <input
+                                    type='checkbox'
+                                    className='btn-check'
+                                    value={interest}
+                                    id={'checkbox' + interest}
+                                    onClick={handleChange} 
+                                />
+                                <label
+                                    className='btn btn-primary'
+                                    htmlFor={'checkbox' + interest}
+                                >
+                                    {interest}
+                                </label>
+                            </div >
+                        ))}
                       </div>
                       <div>
                         Checked interests: {user.interests.toString()}

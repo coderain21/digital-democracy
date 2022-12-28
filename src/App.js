@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 //React Router being used for SPA functionality
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 //Component Imports

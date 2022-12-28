@@ -17,7 +17,7 @@ function LoginComponent () {
     const handleChange = e =>{
         const {name,value} = e.target;
         setUser({
-        ...user,//spread operator 
+        ...user,
         [name]:value
         });
     }
