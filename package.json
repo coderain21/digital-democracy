@@ -13,8 +13,9 @@
     "url": "https://github.com/thefutureisnowcoalition/digital-democracy/issues"
   },
   "scripts": {
-
-    "start": "concurrently  \"nodemon server/server.js\" \"webpack-dev-server --hot --open\"",
+    "client":"webpack-dev-server --hot --open",
+    "server":"nodemon server/server.js",
+    "start": "concurrently  \"npm run server\" \"npm run client\"",
     "build": "webpack --config webpack.config.js --mode production"
   },
   "homepage": "https://github.com/thefutureisnowcoalition/digital-democracy#readme",

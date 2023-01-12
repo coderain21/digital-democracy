@@ -9,7 +9,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.[hash].js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.join(__dirname, "/dist"),
     publicPath: "/", 
   },
    performance: {
@@ -38,7 +38,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.jsx|js?$/,
         exclude: /node_modules/,
         loader: require.resolve("babel-loader")
       },
