@@ -22,12 +22,12 @@
 }
 
 .home-link{
-  color: black;
-  font-size: 20px;
+  color:  black !important;
+  font-size: 20px !important;
 }
 .pcf-link{
-  color: black;
-  font-size: 20px;
+  color: black !important;
+  font-size: 20px !important;
 }
 #navbarScrollingDropdown {
   color: black ;

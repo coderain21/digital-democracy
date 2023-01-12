@@ -13,6 +13,9 @@ import DistrictMapPage from './components/features/DistrictMap/DistrictMapPage';
 import Donations from './components/features/Donations/Donations';
 import BillFeed from './components/features/BillFeed/BillFeed';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button, Badge} from 'react-bootstrap';
+
 
 function App() {
   const [user,setLoginUser] = useState({
