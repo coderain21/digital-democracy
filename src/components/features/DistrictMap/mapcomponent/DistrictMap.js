@@ -13,7 +13,7 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 function DistrictMap({locationString = "None"}) {
     // API key is exposed, needs to be fixed
-    mapboxgl.accessToken = "pk.eyJ1IjoiaXNhaWFoZnVqaWlicmVzbmloYW4iLCJhIjoiY2w4dWkzdzVkMDQzeTN2bnoyenNic2c1diJ9.0WsMDr0qD_Bq0RWjNxG_yg";
+    mapboxgl.accessToken = "pk.eyJ1IjoiZGR0ZWFtIiwiYSI6ImNsYWE4Ymp2MTAzZGQzb2xweXhvYTF5bnMifQ.plCD33azG7GB4SM1xIwjXw";
     
     const mapContainer = useRef(null);
 

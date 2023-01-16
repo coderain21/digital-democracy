@@ -1,0 +1,17 @@
+/* Show the dropdown menu  */
+.show {
+  display: block;
+}
+
+/* Hide the dropdown menu */
+.hide {
+  display: none;
+}
+
+#suggestions {
+    z-index: 1000;
+}
+
+#dropdownlist li:hover {
+    background-color: #fdfef2;
+}

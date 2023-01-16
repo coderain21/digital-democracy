@@ -21,7 +21,7 @@ function DataVisualizationFull({politician}) {
           style={{ textAlign: "center" }}
         >
           Missed Votes:{" "}
-          <span style={{ color: "red" }}>
+          <span style={{ color: "red"}}>
             {politician.missed_votes}
           </span>
         </h5>

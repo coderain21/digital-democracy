@@ -20,7 +20,7 @@ function PoliticianProfile() {
 
   function fetchPolitician(){
   
-    const url = `http://localhost:8000/api/${search}`
+    const url = `http://localhost:8000/politician/${search}`
 
     fetch(url)
     .then((response) => response.json())

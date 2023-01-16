@@ -1,0 +1,26 @@
+.card-styles:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 33px 1px rgba(0, 0, 0, 0.33);
+  color: #000;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 5%;
+  display: flex;
+}
+
+.card-title {
+  text-align: center;
+  /* height: 170px; */
+  /* display: flex; */
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.card-img-bottom {
+  width:80%;
+  margin:auto;
+  margin-top:10px;
+}
