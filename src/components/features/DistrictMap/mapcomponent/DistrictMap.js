@@ -207,12 +207,12 @@ function DistrictMap({locationString = "None"}) {
         <div className="mt-3" style={{textAlign: 'center'}}>
             <h3>District Map</h3>
             <div className="sidebar">
-                Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+                | Longitude: {lng} | Latitude: {lat} | Zoom: {zoom} |
             </div>
-            <div ref={mapContainer} className="map-container" style={{height: "400px" }}/>
-            <button type="button" onClick={handleClick}>U.S. Congress</button>
-            <button type="button" onClick={handleClick}>State House</button>
-            <button type="button" onClick={handleClick}>State Senate</button>
+            <div ref={mapContainer} className="map-container" style={{height: "400px", border: "solid black 1px" }}/>
+            <button className="btn-1" type="button" onClick={handleClick}>U.S. Congress</button>
+            <button className="btn-2" type="button" onClick={handleClick}>State House</button>
+            <button className="btn-3" type="button" onClick={handleClick}>State Senate</button>
         </div>
      );
 }

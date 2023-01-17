@@ -2,10 +2,12 @@
 
 .me-auto my-2 my-lg-0{
   background-color: transparent;
+  font-family: "Times New Roman", Times, serif;
 }
 .navlinks{
   text-decoration: none;
   color: white;
+  font-family: "Times New Roman", Times, serif;
   margin: 10px;
 }
 .navlinks:hover {
@@ -14,6 +16,7 @@
 
 .searchbarstyle {
   margin-left: 50px;
+  font-family: "Times New Roman", Times, serif;
   display: inline;
   width: 30%;
   min-width: 230px;
@@ -22,14 +25,17 @@
 }
 
 .home-link{
-  color:  black !important;
-  font-size: 20px !important;
+  color: black;
+  font-size: 20px; font-family: "Times New Roman", Times, serif;
+
 }
 .pcf-link{
-  color: black !important;
-  font-size: 20px !important;
+  color: black;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
 }
 #navbarScrollingDropdown {
   color: black ;
   font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
 }

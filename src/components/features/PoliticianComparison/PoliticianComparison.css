@@ -1,5 +1,5 @@
 .card-republican {
-    background-color: rgb(255, 88, 88);
+    background-color: rgb(175, 37, 37);
 }
 
 .card-democrat {
@@ -8,4 +8,7 @@
 
 .card-other {
     background-color: rgb(249, 207, 152);
+}
+.website{
+    color: green;
 }
