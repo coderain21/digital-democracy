@@ -56,7 +56,7 @@ async function getBills(topic){
   return (
     <div className="container">
       <div className="row mt-3"></div>
-      <div className="row mt-3">
+      <div className="row" style={{"marginTop":'10px'}}>
         <div className="col-sm-12 col-lg-8" style={{ margin: "auto" }}>
           <div class="card">
             <div class="card-body" style={{margin: 'auto', textAlign: 'center'}}>
