@@ -13,7 +13,8 @@ import Navigation from './components/Nav/Navigation'
 import DistrictMapPage from './components/features/DistrictMap/DistrictMapPage';
 import Donations from './components/features/Donations/Donations';
 import BillFeed from './components/features/BillFeed/BillFeed';
-
+import ForgotPassword from './components/forgot-password/ForgotPassword';
+import ResetPassword from './components/reset-password/ResetPassword';
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
         <Route path="/districtmap" element={<DistrictMapPage />} />
         <Route path="/donations" element={<Donations />} />
         <Route path="/feed" element={<BillFeed />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/resetpassword/:resetToken" element={<ResetPassword />} />
 
       </Routes>
     </BrowserRouter>

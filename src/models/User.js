@@ -7,7 +7,9 @@ const UserSchema = new mongoose.Schema({
     address: String,
     zipcode: String,
     interests: Array,
-    refreshToken: String
+    refreshToken: String,
+    resetPasswordToken: String,
+    resetPasswordTokenExpiry: Date
 })
 
 module.exports = mongoose.model('User', UserSchema);

@@ -51,6 +51,8 @@ app.use('/signup', require('../src/routes/signup'));
 app.use('/logout', require('../src/routes/logout'));
 app.use('/recaptcha', require('../src/routes/recaptcha'));
 app.use('/refreshToken', require('../src/routes/refreshToken'));
+app.use('/forgotPassword', require('../src/routes/forgotPassword'));
+app.use('/resetPassword', require('../src/routes/resetPassword'));
 
 app.use(verifyJWT);
 app.use('/user', require('../src/routes/user'));
