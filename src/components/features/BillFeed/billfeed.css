@@ -9,3 +9,7 @@
 .topicbtn{
     color: rgb(167, 22, 22);
 }
+
+.feed-body{
+    width: 70% !important;
+}
