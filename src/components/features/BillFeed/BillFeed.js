@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Feed from "./feed/Feed";
+import "./billfeed.css";
 
 function BillFeed() {
   const [bills, setBills] = useState(null);
@@ -55,16 +56,19 @@ async function getBills(topic){
 }
   return (
     <div className="container">
-      <div className="row mt-3"></div>
       <div className="row" style={{"marginTop":'10px'}}>
         <div className="col-sm-12 col-lg-8" style={{ margin: "auto" }}>
-          <div class="card">
-            <div class="card-body" style={{margin: 'auto', textAlign: 'center'}}>
+          <div className="signindiv" >
+            <div  style={{margin: 'auto', textAlign: 'center'}}>
+             
+             <div className="textbox">
               <p style={{ textAlign: "center" }}>
                 Sign in or select an interest to view bill info.
               </p>
-              <div class="dropdown">
+              </div>
+              <div className="topicbtn">
                 <button
+                style={{border: "2px solid black"}}
                   class="btn btn-secondary dropdown-toggle"
                   type="button"
                   data-bs-toggle="dropdown"
@@ -108,6 +112,7 @@ async function getBills(topic){
               </div>
               <div className="col-12" style={{ textAlign: "center" }}>
                 <button
+                style={{border: "2px solid black"}}
                   className="btn btn-primary mt-2"
                   onClick={() => console.log(bills)}
                 >
