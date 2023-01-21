@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from "react-bootstrap/Card";
-import "../home/home.css";
+import "./home.css";
 // Images
 import political_comp from "./assests/political_comparison.png";
 import political_profile from "./assests/political_profile.png"
