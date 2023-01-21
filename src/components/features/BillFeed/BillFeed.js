@@ -123,7 +123,7 @@ async function getBills(topic){
           </div>
         </div>
       </div>
-      <div className="row mt-4">
+      <div className="row mt-4 feed-body">
         <div className="col-sm-12" style={{ margin: "auto" }}>
           <Feed bills={bills} />
         </div>
