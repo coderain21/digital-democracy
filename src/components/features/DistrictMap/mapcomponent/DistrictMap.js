@@ -9,7 +9,7 @@ import stateupper from "./merged_2022_sldu_processed_simplified.json";
 
 //The following line prevents issues in production
 // eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+// mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 function DistrictMap({locationString = "None"}) {
     // API key is exposed, needs to be fixed
