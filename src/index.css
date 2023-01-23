@@ -1,7 +1,11 @@
-body {
+/* body {
     background-color: #ffffff;
-    background-image: url("https://www.htflag.com/images/watermark1.jpg");
+
     background-attachment: fixed;
     background-size: cover;
     font-family: "Times New Roman", Times, serif;
-}
+} */
+html, body {
+    margin: 0;
+    padding: 0;
+} 

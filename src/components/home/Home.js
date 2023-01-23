@@ -1,24 +1,28 @@
 import React from 'react'
 import Card from "react-bootstrap/Card";
-import "../home/home.css";
+import "./home.css";
 // Images
 import political_comp from "./assests/political_comparison.png";
 import political_profile from "./assests/political_profile.png"
 import usa_map from "./assests/usa_map.png"
 import donation from "./assests/donation.png"
 import dashboard from "./assests/dashboard.png"
+import Usa from './assests/usa.svg';
+import FakeProfile  from './assests/fakeProfile.svg'
+import verticalLogo from './assests/verticalLogo.png'
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
+  const navigate = useNavigate();
+
 
   return (
-    <div className="container-lg">
+    <div className='home'>
 
       {/*  ||||||||||| new feature section here using react Bootstrap ||||||||||||*/}
 
-      <div className="card-header mt-5 mb-3" style={{ textAlign: "center" }}>
-        <h4>FEATURES</h4>
-      </div>
+     
       <div>
         <div
           style={{
@@ -27,9 +31,53 @@ function Home() {
             flexWrap: "wrap",
           }}
         >
-          {/* Politician Comparision */}
 
-          <Card.Link className="card-link" href="/comparison">
+          {/* Politician Comparision */}
+          
+          
+          {/*  WELCOME COMPONENT  */}
+
+          <div className='welcome-body'>
+
+            <h1>Welcome!</h1>
+
+          </div>
+
+
+          {/* DISTRICT MAP */}
+
+          <div className='district-show'>
+            <div className='district-desc'>
+              <h3  onClick ={()=>{navigate('/districtmap')}} style={{cursor:'pointer'}}>District Map</h3>
+              <div  onClick ={()=>{navigate('/districtmap')}} style={{cursor:'pointer'}}>View our district map</div>
+
+            </div>
+            
+            <Usa className='usa-background'/>
+     
+              
+          </div>
+
+
+             {/* Politician Profile*/}
+          <div className='profile-intro'>
+
+          
+          <FakeProfile className='profile-card'/>
+          <div className='district-desc'>
+            
+              <h3 onClick ={()=>{navigate('/profile/Ted%20Cruz'); location.reload()}} style={{cursor:'pointer'}}>Politician Profile</h3>
+              <div onClick ={()=>{navigate('/profile/Ted%20Cruz'); location.reload()}} style={{cursor:'pointer'}}>View politicians and their profiles.</div>
+
+          </div>
+
+          </div>
+
+
+
+
+
+          {/* <Card.Link className="card-link" href="/comparison">
             <Card
               className="card-styles"
               style={{ width: "18rem", marginBottom: "1%", height: "200px" }}
@@ -45,7 +93,7 @@ function Home() {
               </Card.Body>
             </Card>
           </Card.Link>
-          {/* Politician Profile */}
+       
 
           <Card.Link className="card-link" href="/profile/Ted%20Cruz">
             <Card
@@ -63,7 +111,7 @@ function Home() {
             </Card>
           </Card.Link>
 
-          {/* Dashboard */}
+    
 
           <Card.Link className="card-link" href="/dashboard">
             <Card
@@ -81,7 +129,7 @@ function Home() {
             </Card>
           </Card.Link>
 
-          {/* Disrict Map */}
+        
 
           <Card.Link className="card-link" href="/districtmap">
             <Card
@@ -99,7 +147,7 @@ function Home() {
             </Card>
           </Card.Link>
 
-          {/* Donation */}
+     
 
           <Card.Link className="card-link" href="/donations">
             <Card
@@ -115,7 +163,7 @@ function Home() {
                 <Card.Title>Donations</Card.Title>
               </Card.Body>
             </Card>
-          </Card.Link>
+          </Card.Link> */}
         </div>
       </div>
     </div>
