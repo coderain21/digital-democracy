@@ -62,12 +62,12 @@ function ProfileInfo({user, setUser, page, setPage, setLoginUser}){
     };
 
     return ( 
-        <div className="row text-center">
-            <div className="container w-25">
+        <div className="row text-center" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "1px solid black", display: "flex", justifyContent: "center"}}>
+            <div className="container w-25" >
               <GoogleLoginComponent setLoginUser={setLoginUser}>
               </GoogleLoginComponent>
             </div>
-            <div className="col-md-12">
+            <div className="col-md-12" style={{fontSize: "20px"}}>
                 Create a new account
             </div>
             <span className="col-md-12">
@@ -103,7 +103,7 @@ function ProfileInfo({user, setUser, page, setPage, setLoginUser}){
                             ref={recaptchaRef}
                             onChange={signup}
                         />
-                        <button type="submit" onClick={handleRecaptcha} >
+                        <button className='signup' type="submit" onClick={handleRecaptcha} >
                           Sign up
                         </button>
                       </div>

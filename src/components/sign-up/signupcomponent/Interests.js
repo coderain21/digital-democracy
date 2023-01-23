@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import './interests.css';
 
 function Interests({user, setUser, page, setPage}){
     const handleChange = () => {
@@ -64,22 +65,22 @@ function Interests({user, setUser, page, setPage}){
     });
 
     return ( 
-        <div className="row text-center">
-            <div className="col-md-12">
+        <div className="row text-center" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "1px solid black", display: "flex", justifyContent: "center"}}>
+            <div className="col-md-12" style={{fontSize: "20px"}}>
                 Interests
             </div>
             <div className="col-md-12">
                 <form action="#">
                       <div className="input-group d-inline-flex flex-column w-25" id="interests">
                       </div>
-                      <div>
+                      <div style={{fontSize: "20px"}}>
                         Checked interests: {user.interests.toString()}
                       </div>
                       <div className="container">
-                        <button type="submit" onClick={previous} >
+                        <button className='previous' type="submit" onClick={previous} >
                           Previous
                         </button>
-                        <button type="submit" onClick={updateInfo} >
+                        <button className='finish' type="submit" onClick={updateInfo} >
                           Finish
                         </button>
                       </div>

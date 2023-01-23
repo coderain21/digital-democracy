@@ -117,7 +117,7 @@ function Address({user, setUser, page, setPage}){
     };
 
     return ( 
-        <div className="row text-center">
+        <div className="row text-center"  style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "1px solid black", display: "flex", justifyContent: "center"}}>
             <div className="col-md-12">
                 <form action="#">
                     <div className="container w-25 position-relative">
@@ -139,7 +139,7 @@ function Address({user, setUser, page, setPage}){
                         </div>
                       </div>
                       <div className="container">
-                        <button type="submit" onClick={next} >
+                        <button className='next' type="submit" onClick={next} >
                           Next
                         </button>
                         

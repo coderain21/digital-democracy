@@ -1,21 +1,19 @@
-/* Show the dropdown menu  */
-.show {
-  display: block;
-}
 
-/* Hide the dropdown menu */
-.hide {
-  display: none;
+.mt-5{
+    background-color: rgba(154, 150, 150, 0.3);
+    border-top: 1px solid black;
 }
+.col-md-12{
+  left: 20px;
 
-#suggestions {
-    z-index: 1000;
 }
-
-#dropdownlist li:hover {
-    background-color: #fdfef2;
+.container{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+   
 }
-.next{
+.login {
   align-items: center;
   appearance: none;
   background-color: rgb(15, 15, 15);
@@ -48,12 +46,12 @@
   z-index: 0;
 }
 
-.next:hover {
+.login:hover {
   background: #F6F9FE;
   color: #080808;
 }
 
-.next:active {
+.login:active {
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
 }

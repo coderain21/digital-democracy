@@ -52,35 +52,45 @@ function LoginComponent ({setLoginUser}) {
     }
 
     return (
-        <div className="row text-center">
-            <div className="col-md-12">
+        <div className="row text-center" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "1px solid black", display: "flex", justifyContent: "center"}}>
+            <div className="col-md-12" style={{textAlign: "center", fontSize: "23px"}}>
                 Login To Your Account
             </div>
             <div className="container w-25" >
-                <GoogleLoginComponent setLoginUser={setLoginUser}>
+                   <GoogleLoginComponent setLoginUser={setLoginUser} >
                 </GoogleLoginComponent>
             </div>
-            <div className="form-group row">
+          <p>
+
+
+            
+          </p>
+          <div className="form-group row" >
                 <form action="#" autoComplete="off">
-                    <p>
-                        Or enter email and password
+                    <p style={{textAlign: "center", fontSize: "20px"}}>
+                        Enter email and password
                     </p>
                     <div className= "container w-25">
-                        <div className="input-group col-xs-4">
+                        <div className="input-group col-xs-4" style={{border: "1px solid black", borderRadius: "7px"}}>
                             <input type="text" autoComplete="email" className="form-control" name="email" value={user.email}  onChange={handleChange} placeholder="Your email"/>
                         </div>
                     </div>
-                    <div className="container w-25">
-                        <div className="input-group col-xs-4">
+                    <div className="container w-25" >
+                        <div className="input-group col-xs-4" style={{border: "1px solid black", borderRadius: "7px"}}>
                             <input type="password" autoComplete="current-password" className="form-control" name="password" value={user.password}  onChange={handleChange} placeholder="Your password"/>
                         </div>
                     </div>
-                    <div className="container">
-                        <div className="container">
+                <div className="container">
+                     <div className="container" style={{textAlign: "center"}}>
                             <a href="#" className="link-primary">
                                 Forgot Your Password?
                             </a>
-                        </div>
+                    </div>
+                    <div className="col-md-12" style={{textAlign: "center"}}>
+                <button type="button" className="btn btn-link" onClick={() => navigate('/signup')}>
+                    Sign Up?
+                </button>
+            </div>
                     </div>
                     <div className="container">
                         <ReCAPTCHA
@@ -89,17 +99,13 @@ function LoginComponent ({setLoginUser}) {
                             ref={recaptchaRef}
                             onChange={login}
                         />
-                        <button type="submit" onClick={handleRecaptcha}>
+                        <button className='login' type="submit" onClick={handleRecaptcha}>
                             Login
                         </button>
                     </div>
                 </form>
             </div>
-            <div className="col-md-12">
-                <button type="button" className="btn btn-link" onClick={() => navigate('/signup')}>
-                    Don't have an account?
-                </button>
-            </div>
+           
         </div>
     )
     }
