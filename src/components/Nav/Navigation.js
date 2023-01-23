@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 // import { NavLink } from 'react-router-dom'
 import SearchBar from './searchbar/SearchBar'
 import '../Nav/Nav.css'
@@ -11,19 +11,14 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 
 function Navigation() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
   return (
-    // <nav className="nav">
-    //   <NavLink to="/" className="navlinks">Home</NavLink>
-    //   <NavLink to="/comparison" className="navlinks">P.C.F</NavLink>
-    //   <SearchBar />
 
-    // </nav>
-
-    // newly added nav from bootstrap
-
-    <Navbar className="navigation" bg="transparent" expand="lg">
+    <Navbar className="navigation" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Digital Democracy</Navbar.Brand>
+        <Navbar.Brand className="main-title" href="/">Digital Democracy</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -31,21 +26,28 @@ function Navigation() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link className="home-link" href="/">Home</Nav.Link>
-            <Nav.Link className="pcf-link" href="/comparison">P.C.F</Nav.Link>
+          <Nav.Link className="pcf-link" href="/comparison">Comparison</Nav.Link>
+          
+          <Nav.Link className="pcf-link" href="/comparison">Map</Nav.Link>
+
+        {isLoggedIn &&
+
+
             <NavDropdown className="profile-link" title="Profile" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
                 Another action
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item href="/signout">
                 Signout
               </NavDropdown.Item>
             </NavDropdown>
-            {/* <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link> */}
+        }
+
+        {!isLoggedIn &&
+          <Nav.Link className="pcf-link" href="/login">Login</Nav.Link>
+        }         
           </Nav>
           <SearchBar />
             
