@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import GoogleLoginComponent from '../../sign-up/signupcomponent/GoogleLogin';
+import Logo from './logo.svg';
 
 function LoginComponent ({setLoginUser}) {
     const navigate = useNavigate();
@@ -52,47 +53,57 @@ function LoginComponent ({setLoginUser}) {
     }
 
     return (
-        <div className="row text-center" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "1px solid black", display: "flex", justifyContent: "center"}}>
-            <div className="col-md-12" style={{textAlign: "center", fontSize: "23px"}}>
+    
+        <div className="login-body" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center",borderTop: "3px solid black", height: "380px"}}>
+             <div className='logo' >
+            <Logo className='logo-img' style={{ position:"fixed", left: "100px"}}/>
+            </div>
+            <div>
+            <div className="login-text" style={{right: "20px",  fontSize: "23px"}}>
                 Login To Your Account
             </div>
-            <div className="container w-25" >
+           
+            <div className="google-sign-in" >
                    <GoogleLoginComponent setLoginUser={setLoginUser} >
                 </GoogleLoginComponent>
+              
             </div>
           <p>
 
 
-            
+
           </p>
-          <div className="form-group row" >
+          <div  className='email-text'>
                 <form action="#" autoComplete="off">
                     <p style={{textAlign: "center", fontSize: "20px"}}>
                         Enter email and password
                     </p>
-                    <div className= "container w-25">
-                        <div className="input-group col-xs-4" style={{border: "1px solid black", borderRadius: "7px"}}>
+                    <div >
+                        <div className="input-login" style={{border: "1px solid black", borderRadius: "7px"}}>
                             <input type="text" autoComplete="email" className="form-control" name="email" value={user.email}  onChange={handleChange} placeholder="Your email"/>
                         </div>
                     </div>
-                    <div className="container w-25" >
-                        <div className="input-group col-xs-4" style={{border: "1px solid black", borderRadius: "7px"}}>
+                    <p style={{color: "gray"}}>
+                        . 
+                    </p>
+                    <div >
+                        <div className="input-login" style={{border: "1px solid black", borderRadius: "7px"}}>
                             <input type="password" autoComplete="current-password" className="form-control" name="password" value={user.password}  onChange={handleChange} placeholder="Your password"/>
                         </div>
                     </div>
-                <div className="container">
-                     <div className="container" style={{textAlign: "center"}}>
+                <div className="forgot-link">
+                     <div style={{textAlign: "center"}}>
                             <a href="#" className="link-primary">
                                 Forgot Your Password?
                             </a>
                     </div>
-                    <div className="col-md-12" style={{textAlign: "center"}}>
+                    <div className="sign-link" style={{textAlign: "center"}}>
                 <button type="button" className="btn btn-link" onClick={() => navigate('/signup')}>
                     Sign Up?
                 </button>
             </div>
                     </div>
-                    <div className="container">
+                    <div >
                         <ReCAPTCHA
                             size="invisible"
                             sitekey="6Lf02yQjAAAAACG2joKuBxO9nGQBjTvBmHpU4AY_"
@@ -103,9 +114,10 @@ function LoginComponent ({setLoginUser}) {
                             Login
                         </button>
                     </div>
+                
                 </form>
             </div>
-           
+            </div>
         </div>
     )
     }

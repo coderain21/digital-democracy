@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import './interests.css';
-
+import Logo from './logo.svg';
 function Interests({user, setUser, page, setPage}){
     const handleChange = () => {
         console.log("handle change");
@@ -65,18 +65,21 @@ function Interests({user, setUser, page, setPage}){
     });
 
     return ( 
-        <div className="row text-center" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "1px solid black", display: "flex", justifyContent: "center"}}>
-            <div className="col-md-12" style={{fontSize: "20px"}}>
+        <div className="" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center", height: "250px"}}>
+            <div className='logo' >
+            <Logo className='logo-img' style={{ position:"fixed", left: "100px", top: "30px"}}/>
+            </div>
+            <div className="interest-text" style={{fontSize: "20px"}}>
                 Interests
             </div>
-            <div className="col-md-12">
+            <div className="">
                 <form action="#">
-                      <div className="input-group d-inline-flex flex-column w-25" id="interests">
+                      <div className="interest-tabs" id="interests">
                       </div>
-                      <div style={{fontSize: "20px"}}>
+                      <div className='checked-text' style={{fontSize: "20px"}}>
                         Checked interests: {user.interests.toString()}
                       </div>
-                      <div className="container">
+                      <div className="">
                         <button className='previous' type="submit" onClick={previous} >
                           Previous
                         </button>

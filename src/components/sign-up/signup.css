@@ -1,8 +1,8 @@
-.input-group{
-    border: 1px solid black; 
-    border-radius: 7px;
-}
+
 .signup{
+  position:relative;  
+   right:395px;
+    top: 130px;
     align-items: center;
     appearance: none;
     background-color: rgb(15, 15, 15);
@@ -34,6 +34,11 @@
     will-change: transform,opacity;
     z-index: 0;
   }
+  .logo{
+    height: 0px;
+    width: 20%;
+    float: left;
+  }
   
   .signup:hover {
     background: #F6F9FE;
@@ -45,5 +50,42 @@
     outline: none;
   }
   
-  
-  
+  .signup-text{
+    background-color: rgba(154, 150, 150, 0.3);
+    border-top: 3px solid black;
+  }  
+  .input-signup{
+    width: 200px;
+    border: 1px solid black;
+    position:relative; 
+    border-radius: 8px;
+    right:450px;
+    top: 130px;
+    justify-content: center;
+  }
+  .create-text{
+    position:relative; 
+    white-space: nowrap;
+    left:145px;
+    top: 90px;
+    justify-content: center;
+  }
+  .account-text{
+    position:relative; 
+    white-space: nowrap;
+    right:60px;
+    top: 50px;
+    justify-content: center;
+  }
+  .google-signup{
+    position:relative; 
+    white-space: nowrap;
+    right:260px;
+    top: 10px;
+    justify-content: center;
+  }
+  .pass-strength{
+    position:relative;  
+   right:450px;
+    top: 130px;
+  }

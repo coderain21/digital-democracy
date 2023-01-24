@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Address.css";
-
+import Logo from './logo.svg';
 function Address({user, setUser, page, setPage}){
 
     function setSuggestions(input) {
@@ -117,28 +117,31 @@ function Address({user, setUser, page, setPage}){
     };
 
     return ( 
-        <div className="row text-center"  style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "1px solid black", display: "flex", justifyContent: "center"}}>
-            <div className="col-md-12">
+        <div  style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center", height: "200px"}}>
+             <div className='logo' >
+            <Logo className='logo-img' style={{ position:"fixed", left: "100px", top: "30px"}}/>
+            </div>
+            <div >
                 <form action="#">
-                    <div className="container w-25 position-relative">
-                        <div>
+                    <div >
+                        <div className='street-text'>
                             Full Street Address
                         </div>
-                        <div className="input-group">
-                            <input type="text" className="form-control" name="address" value={user.address} onClick={handleClick} onChange={handleChange} placeholder="Street Address"/>
+                        <div className="input-address">
+                            <input style={{  border: "1px solid black", borderRadius: "8px"}} type="text" className="" name="address" value={user.address} onClick={handleClick} onChange={handleChange} placeholder="Street Address"/>
                         </div>
-                        <div id="suggestions" className="position-absolute w-100">
-                            <ul id="dropdownlist" className="list-group">
+                        <div >
+                            <ul className="list-group">
                             </ul>
                         </div>
-                        <div>
+                        <div className='zip-text'>
                             Or ZIP Code only for limited features
                         </div>
-                        <div className="input-group">
-                            <input type="text" className="form-control" name="zipcode" value={user.zipcode} onClick={handleClick} onChange={handleChange} placeholder="ZIP Code"/>
+                        <div className="input-address">
+                            <input style={{ width: "60%", border: "1px solid black", borderRadius: "8px"}} type="text" className="" name="zipcode" value={user.zipcode} onClick={handleClick} onChange={handleChange} placeholder="ZIP Code"/>
                         </div>
                       </div>
-                      <div className="container">
+                      <div >
                         <button className='next' type="submit" onClick={next} >
                           Next
                         </button>

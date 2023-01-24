@@ -1,4 +1,7 @@
 .previous{
+  position:relative;  
+  right:150px;
+   top: 80px;
     align-items: center;
     appearance: none;
     background-color: rgb(15, 15, 15);
@@ -43,6 +46,9 @@
   
   
   .finish{
+    position:relative;  
+    right:130px;
+     top: 80px;
     align-items: center;
     appearance: none;
     background-color: rgb(15, 15, 15);
@@ -85,5 +91,29 @@
     outline: none;
   }
   
-  
-    
+  .interest-text{
+    position:relative;  
+   right:0px;
+    top: 10px;
+  }
+  .interest-tabs{
+    position:relative;  
+    right:265px;
+     top: 50px;
+     white-space: nowrap;
+     border: 1px solid black;
+     border-radius: 8px;
+  }
+  .checked-text{
+    position:relative;  
+    right:265px;
+     top: 50px;
+  }
+  .interest-tabs:active{
+    position:relative;  
+    right:265px;
+     top: 50px;
+     white-space: nowrap;
+     border: 1px solid black;
+     border-radius: 8px;
+  }

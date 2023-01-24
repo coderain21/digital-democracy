@@ -1,12 +1,4 @@
 
-.mt-5{
-    background-color: rgba(154, 150, 150, 0.3);
-    border-top: 1px solid black;
-}
-.col-md-12{
-  left: 20px;
-
-}
 .container{
     margin: auto;
     width: 50%;
@@ -14,6 +6,9 @@
    
 }
 .login {
+  position:relative; 
+  left: 70px;
+  color: rgb(7, 7, 7);
   align-items: center;
   appearance: none;
   background-color: rgb(15, 15, 15);
@@ -55,5 +50,42 @@
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
 }
+.logo{
+  height: 0px;
+  width: 20%;
+  float: left;
+  
+  
+}
+.google-sign-in{
+  position:relative; 
+  right:90px;
+  color: rgb(7, 7, 7);
+
+}
+.login-text{
+  position:relative; 
+  left: -110px;
+  color: rgb(7, 7, 7);
+}
 
 
+.login-body{
+  display: flex;
+}
+.input-login{
+  width: 100%;
+  position:relative; 
+  left: 0px;
+}
+.logo-img{
+  float: left;
+}
+.forgot-link{
+  position:relative; 
+  left: 0px;
+}
+.email-text{
+  position:relative; 
+  left: -110px;
+}
