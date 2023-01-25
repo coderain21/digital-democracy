@@ -9,7 +9,7 @@ import donation from "./assests/donation.png"
 import dashboard from "./assests/dashboard.png"
 import Usa from './assests/usa.svg';
 import FakeProfile  from './assests/fakeProfile.svg'
-import verticalLogo from './assests/verticalLogo.png'
+import verticalLogo from './assests/VerticalLogo.png'
 import { useNavigate } from 'react-router-dom';
 
 function Home() {

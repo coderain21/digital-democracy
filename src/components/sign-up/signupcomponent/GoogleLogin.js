@@ -64,6 +64,7 @@ function GoogleLoginComponent ({setLoginUser}) {
     return (
     <GoogleOAuthProvider clientId={clientId}>
         <GoogleLogin
+        style={{border: "1px solid black"}}
         text="Sign in with Google"
         onSuccess={onSuccess}
         onError={onFailure}
