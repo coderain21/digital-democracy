@@ -1,13 +1,3 @@
-/* Show the dropdown menu  */
-.show {
-  display: block;
-}
-
-/* Hide the dropdown menu */
-.hide {
-  display: none;
-}
-
 #suggestions {
     z-index: 1000;
 }
