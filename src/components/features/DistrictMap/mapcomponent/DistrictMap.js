@@ -9,7 +9,7 @@ import stateupper from "./merged_2022_sldu_processed_simplified.json";
 
 //The following line prevents issues in production
 // eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+// mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 function DistrictMap({locationString = "None"}) {
     // API key is exposed, needs to be fixed
@@ -207,12 +207,12 @@ function DistrictMap({locationString = "None"}) {
         <div className="mt-3" style={{textAlign: 'center'}}>
             <h3>District Map</h3>
             <div className="sidebar">
-                Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+                | Longitude: {lng} | Latitude: {lat} | Zoom: {zoom} |
             </div>
-            <div ref={mapContainer} className="map-container" style={{height: "400px" }}/>
-            <button type="button" onClick={handleClick}>U.S. Congress</button>
-            <button type="button" onClick={handleClick}>State House</button>
-            <button type="button" onClick={handleClick}>State Senate</button>
+            <div ref={mapContainer} className="map-container" style={{height: "400px", border: "solid black 1px" }}/>
+            <button className="btn-1" type="button" onClick={handleClick}>U.S. Congress</button>
+            <button className="btn-2" type="button" onClick={handleClick}>State House</button>
+            <button className="btn-3" type="button" onClick={handleClick}>State Senate</button>
         </div>
      );
 }

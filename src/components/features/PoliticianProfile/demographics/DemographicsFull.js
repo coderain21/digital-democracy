@@ -11,7 +11,7 @@ function DemographicsFull({politician}) {
         backgroundColor: "rgba(255, 255, 255, 0.7)",
       }}
     >
-      <h1 className="mt-3 namefont mb-3" style={{ textAlign: "center" }}>
+      <h1 className="namefont mb-3" style={{ textAlign: "center", backgroundColor: "transparent" }}>
         {politician.first_name} {politician.last_name}
       </h1>
       <h2 className="mt-2" style={{ textAlign: "center" }}>

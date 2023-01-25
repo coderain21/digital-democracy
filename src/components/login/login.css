@@ -1,10 +1,14 @@
 
-
-
-.next{
-  position:relative;  
-   right:15px;
-    top: 30px;
+.container{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+   
+}
+.login {
+  position:relative; 
+  left: 70px;
+  color: rgb(7, 7, 7);
   align-items: center;
   appearance: none;
   background-color: rgb(15, 15, 15);
@@ -37,32 +41,51 @@
   z-index: 0;
 }
 
-.next:hover {
+.login:hover {
   background: #F6F9FE;
   color: #080808;
 }
 
-.next:active {
+.login:active {
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
 }
-
-.street-text{
-  position:relative;  
-   right: 65px;
-    top: 10px;
-    font-size: 20px;
-}
-.zip-text{
-  position:relative;  
-  right:135px;
-  top: 10px;
-  font-size: 20px;
-}
-.input-address{
-  position:relative;  
-   right: 75px;
-    top: 10px;
-    width: 100%;
+.logo{
+  height: 0px;
+  width: 20%;
+  float: left;
   
+  
+}
+.google-sign-in{
+  position:relative; 
+  right:90px;
+  color: rgb(7, 7, 7);
+
+}
+.login-text{
+  position:relative; 
+  left: -110px;
+  color: rgb(7, 7, 7);
+}
+
+
+.login-body{
+  display: flex;
+}
+.input-login{
+  width: 100%;
+  position:relative; 
+  left: 0px;
+}
+.logo-img{
+  float: left;
+}
+.forgot-link{
+  position:relative; 
+  left: 0px;
+}
+.email-text{
+  position:relative; 
+  left: -110px;
 }
