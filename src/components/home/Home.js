@@ -5,8 +5,6 @@ import "./home.css";
 import political_comp from "./assests/political_comparison.png";
 import political_profile from "./assests/political_profile.png"
 import usa_map from "./assests/usa_map.png"
-import donation from "./assests/donation.png"
-import dashboard from "./assests/dashboard.png"
 import Usa from './assests/usa.svg';
 import FakeProfile  from './assests/fakeProfile.svg'
 import verticalLogo from './assests/VerticalLogo.png'
