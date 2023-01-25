@@ -1,0 +1,39 @@
+/* @import url(‘https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap’); */
+
+.feedcard{
+    border-radius: 8px;
+    border: 1px solid rgb(139, 139, 139);
+}
+.feedcard:hover{
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+.billimage{
+    width: 125px;
+    height: 125px;
+    border-radius: 200px;
+    border: 2px solid black;
+    left: 65px;
+    box-shadow: 10px 5px 5px gray;
+    
+}
+.billsummary{
+    position: absolute;
+    height: 189px;
+    left: 200px;
+    top: 63px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+
+    color: #000000;
+
+}
+
+.inter-font{
+    font-family: 'Roboto', sans-serif;
+}

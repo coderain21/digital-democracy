@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import GoogleLoginComponent from '../../sign-up/signupcomponent/GoogleLogin';
 import AuthContext from '../../../context/AuthContext';
+import Logo from './logo.svg';
 
 function LoginComponent () {
     const navigate = useNavigate();
@@ -54,53 +55,70 @@ function LoginComponent () {
     }
 
     return (
-        <div className="row text-center">
-            <div className="col-md-12">
+    
+        <div className="login-body" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center",borderTop: "3px solid black", height: "380px"}}>
+             <div className='logo' >
+            <Logo className='logo-img' style={{ position:"fixed", left: "100px"}}/>
+            </div>
+            <div>
+            <div className="login-text" style={{right: "20px",  fontSize: "23px"}}>
                 Login To Your Account
             </div>
-            <div className="container w-25" >
-                <GoogleLoginComponent >
+           
+            <div className="google-sign-in" >
+                <GoogleLoginComponent  >
                 </GoogleLoginComponent>
+              
             </div>
-            <div className="form-group row">
+          <p>
+
+
+
+          </p>
+          <div  className='email-text'>
                 <form action="#" autoComplete="off">
-                    <p>
-                        Or enter email and password
+                    <p style={{textAlign: "center", fontSize: "20px"}}>
+                        Enter email and password
                     </p>
-                    <div className= "container w-25">
-                        <div className="input-group col-xs-4">
+                    <div >
+                        <div className="input-login" style={{border: "1px solid black", borderRadius: "7px"}}>
                             <input type="text" autoComplete="email" className="form-control" name="email" value={user.email}  onChange={handleChange} placeholder="Your email"/>
                         </div>
                     </div>
-                    <div className="container w-25">
-                        <div className="input-group col-xs-4">
+                    <p style={{color: "gray"}}>
+                        . 
+                    </p>
+                    <div >
+                        <div className="input-login" style={{border: "1px solid black", borderRadius: "7px"}}>
                             <input type="password" autoComplete="current-password" className="form-control" name="password" value={user.password}  onChange={handleChange} placeholder="Your password"/>
                         </div>
                     </div>
-                    <div className="container">
-                        <div className="container">
-                            <a href="#" className="link-primary">
+                <div className="forgot-link">
+                     <div style={{textAlign: "center"}}>
+                            <a href="/forgotpassword" className="link-primary">
                                 Forgot Your Password?
                             </a>
-                        </div>
                     </div>
-                    <div className="container">
+                    <div className="sign-link" style={{textAlign: "center"}}>
+                <button type="button" className="btn btn-link" onClick={() => navigate('/signup')}>
+                    Sign Up?
+                </button>
+            </div>
+                    </div>
+                    <div >
                         <ReCAPTCHA
                             size="invisible"
                             sitekey="6Lf02yQjAAAAACG2joKuBxO9nGQBjTvBmHpU4AY_"
                             ref={recaptchaRef}
                             onChange={login}
                         />
-                        <button type="submit" onClick={handleRecaptcha}>
+                        <button className='login' type="submit" onClick={handleRecaptcha}>
                             Login
                         </button>
                     </div>
+                
                 </form>
             </div>
-            <div className="col-md-12">
-                <button type="button" className="btn btn-link" onClick={() => navigate('/signup')}>
-                    Don't have an account?
-                </button>
             </div>
         </div>
     )

@@ -4,13 +4,14 @@ const morgan = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const verifyJWT = require('../src/middleware/verifyJWT');
+require('dotenv').config()
 
 //Initializing our app and setting our port - 8000 is for local development.
 const app = express()
 const PORT = process.env.PORT || 8000;
 
 //Our MongoDB connection URI - Will need to be hidden in production! Contains our Login Name, Password, and directs us to the "Politicians" database.
-const MONGODB_URI = 'mongodb+srv://FincAdmin:DemocracyBackend135@digitaldemocracy.5lhi6nx.mongodb.net/Politicians?retryWrites=true&w=majority'
+const MONGODB_URI = process.env.MONGODB_URI
 
 const connectDB = async () => {
     try {

@@ -19,12 +19,19 @@ function PoliticianProfile() {
   }, [search]);
 
   function fetchPolitician(){
+    
+    let api_url = process.env.API_URL;
   
-    const url = `http://localhost:8000/politician/${search}`
+    const url = `${api_url}/politician/${search}`
 
     fetch(url)
     .then((response) => response.json())
-    .then((ourdata) => setPoliticianInfo(ourdata, ...politicianInfo))
+    .then((ourdata) => {
+      
+      setPoliticianInfo(ourdata)
+    
+    
+    })
     console.log(politicianInfo)
     setTimeout(() => {
       console.log(politicianInfo)
@@ -35,13 +42,13 @@ if (politicianInfo.party === "R") {
   var profileCardBackground = "repbackground col-12 col-md-8 mt-5";
   var profileBanner = {
     backgroundColor: "rgba(255, 0, 0, 0.85)",
-    borderRadius: "0px",
+    borderRadius: "1px",
     margin: "auto",
   };
 } else if (politicianInfo.party === "D") {
   profileCardBackground = "dembackground col-12 col-md-8 mt-5";
   profileBanner = {
-    backgroundColor: "rgba(0, 0, 255, 0.85)",
+    
     borderRadius: "0px",
     margin: "auto",
   };
@@ -56,9 +63,9 @@ if (politicianInfo.party === "R") {
 
   return (
     <div className="container-lg" key={politicianInfo}>
-      <div className="row">
+      <div className="row"style={{backgroundColor: "rgba(150, 150, 150,0.4)"}}>
                 <div className="col-12 card mt-3">
-                  <div className="row">
+                  <div className="row" style={{backgroundColor: "gray",  border: "3px solid"}}>
                     <ProfileHeader politician={politicianInfo} />
 
                     <div className={profileCardBackground}>

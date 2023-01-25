@@ -1,11 +1,12 @@
 import React from 'react'
 import LoginComponent from './logincomponent/LoginComponent'
-
+import './login.css';
 function Login() {
   return (
     <>
-    <div className="mt-5" style={{textAlign: 'center'}}>Login</div>
-    <LoginComponent />
+
+    <LoginComponent  />
+    
     </>
   )
 }

@@ -1,0 +1,26 @@
+.mt-3{
+    background-color: rgba(114, 110, 110, 0.5);
+    border: solid black 1px;
+}
+.btn-1{
+    background-color: blue;
+    width: 30%;
+    border: solid black 1px;
+}
+.btn-2{
+    background-color: red;
+    width: 30%;
+    border: solid black 1px;
+}
+.btn-3{
+    background-color: rgb(49, 242, 49);
+    width: 30%;
+    border: solid black 1px;
+}
+.mapboxgl-ctrl-group{
+    border: solid black 1px;
+}
+.mapboxgl-ctrl-geocoder{
+    border: solid black 1px;
+   
+}

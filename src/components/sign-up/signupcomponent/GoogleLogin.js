@@ -31,14 +31,15 @@ function GoogleLoginComponent () {
     }
 
     return (
-        <GoogleOAuthProvider clientId={clientId}>
-            <GoogleLogin
-            text="Sign in with Google"
-            onSuccess={onSuccess}
-            onError={onFailure}
-            type="standard"
-            />
-        </GoogleOAuthProvider>
-    )
+    <GoogleOAuthProvider clientId={clientId}>
+        <GoogleLogin
+        style={{border: "1px solid black"}}
+        text="Sign in with Google"
+        onSuccess={onSuccess}
+        onError={onFailure}
+        type="standard"
+        />
+    </GoogleOAuthProvider>
+    );
 }
 export default GoogleLoginComponent

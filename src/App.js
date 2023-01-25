@@ -16,6 +16,10 @@ import BillFeed from './components/features/BillFeed/BillFeed';
 import ForgotPassword from './components/forgot-password/ForgotPassword';
 import ResetPassword from './components/reset-password/ResetPassword';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button, Badge} from 'react-bootstrap';
+
+
 function App() {
   return (
     <BrowserRouter>

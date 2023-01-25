@@ -8,6 +8,7 @@
   margin: 1px;
   border: solid black 1px;
   min-width: 400px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 /* The search field when it gets focus/clicked on */
@@ -19,6 +20,9 @@
 .search-bar {
   position: relative;
   display: inline-block;
+  height: 45px;
+  left: 3px;
+
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -59,16 +63,27 @@
 .search-btn {
   color: white;
   border: solid black 1px;
-  height: 55px;
+  height: 46px;
   width: 100px;
+  bottom: 20px;
+  font-family: "Times New Roman", Times, serif;
   border-radius: 2px;
   background-color: black;
   /* position: relative; */
-  right: 20px;
+ left: 30px;
+ 
 }
 
 .search-btn:hover {
   background-color: gray !important;
+}
+
+.dropdown-button{
+  width: 100%;
+  border: none;
+  background-color: white;
+  margin-top: 10px;
+  height: 3rem;
 }
 
 /* -------- MEDIA QUERIES (MEDIUM DEVICES) --------------*/
