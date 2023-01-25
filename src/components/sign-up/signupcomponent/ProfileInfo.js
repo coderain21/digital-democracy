@@ -3,6 +3,7 @@ import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import GoogleLoginComponent from './GoogleLogin';
 import PasswordStrengthBar from 'react-password-strength-bar';
+import Logo from './logo.svg';
 
 function ProfileInfo({user, setUser, page, setPage, setLoginUser}){
 
@@ -62,48 +63,52 @@ function ProfileInfo({user, setUser, page, setPage, setLoginUser}){
     };
 
     return ( 
-        <div className="row text-center">
-            <div className="container w-25">
-              <GoogleLoginComponent setLoginUser={setLoginUser}>
-              </GoogleLoginComponent>
+        <div  style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center", height: "350px"}}>
+          <div className='logo' >
+            <Logo className='logo-img' style={{ position:"fixed", left: "100px"}}/>
             </div>
-            <div className="col-md-12">
+            <div className="create-text" style={{fontSize: "20px"}}>
                 Create a new account
             </div>
-            <span className="col-md-12">
+            <span className="account-text">
                 Already have an account?
                 <a href="/login" className="link-primary">
                     Login
                 </a>
             </span>
-            <div className="col-md-12">
+            <div className="google-signup" >
+              <GoogleLoginComponent setLoginUser={setLoginUser}>
+              </GoogleLoginComponent>
+            </div>
+            <div >
                 <form action="#">
-                    <div className="container w-25">
-                        <div className="input-group">
+                    <div >
+                        <div className="input-signup">
                             <input type="text" autoComplete="name" className="form-control" name="name" value={user.name} onChange={handleChange} placeholder="Full Name"/>
                         </div>
                       </div>
-                      <div className="container w-25">
-                        <div className="input-group">
+                      
+                      <div >
+                        <div className="input-signup">
                           <input type="text" autoComplete="email" className="form-control" name="email" value={user.email} onChange={handleChange} placeholder="Email"/>
                         </div>
                       </div>
-                      <div className="container w-25">
-                        <div className="input-group">
+                      <div >
+                        <div className="input-signup">
                           <input type="password" autoComplete="new-password" className="form-control" name="password" value={user.password} onChange={handleChange} placeholder="password"/>
                         </div>
-                        <PasswordStrengthBar 
+                        <PasswordStrengthBar className='pass-strength'
                             password={user.password}
                             onChangeScore={onChangeScore} />
                       </div>
-                      <div className="container">
+                      <div >
                         <ReCAPTCHA
                             size="invisible"
                             sitekey="6Lf02yQjAAAAACG2joKuBxO9nGQBjTvBmHpU4AY_"
                             ref={recaptchaRef}
                             onChange={signup}
                         />
-                        <button type="submit" onClick={handleRecaptcha} >
+                        <button className='signup' type="submit" onClick={handleRecaptcha} >
                           Sign up
                         </button>
                       </div>
