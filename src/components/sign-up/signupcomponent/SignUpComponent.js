@@ -4,7 +4,7 @@ import Address from './Address';
 import Interests from './Interests';
 
 
-function SignUpComponent({setLoginUser}) {
+function SignUpComponent() {
   const [page, setPage] = useState(0);
   const [user,setUser] = useState({
     name:"",
@@ -17,7 +17,7 @@ function SignUpComponent({setLoginUser}) {
 
   const DisplayPage = () => {
     if (page === 0){
-      return <ProfileInfo user={user} setUser={setUser} page={page} setPage={setPage} setLoginUser={setLoginUser}/>;
+      return <ProfileInfo user={user} setUser={setUser} page={page} setPage={setPage}/>;
     }
     else if (page === 1){
       return <Address user={user} setUser={setUser} page={page} setPage={setPage} />;
