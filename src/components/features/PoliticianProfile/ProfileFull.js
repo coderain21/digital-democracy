@@ -26,7 +26,12 @@ function PoliticianProfile() {
 
     fetch(url)
     .then((response) => response.json())
-    .then((ourdata) => setPoliticianInfo(ourdata, ...politicianInfo))
+    .then((ourdata) => {
+      
+      setPoliticianInfo(ourdata)
+    
+    
+    })
     console.log(politicianInfo)
     setTimeout(() => {
       console.log(politicianInfo)

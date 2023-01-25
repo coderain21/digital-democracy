@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import names from "./searchNames";
 import Button from "react-bootstrap/Button";
-import { BiSearchAlt } from 'react-icons/bi'
+import { BiSearchAlt } from 'react-icons/bi';
 
 import "./SearchBar.css";
 
 export default function SearchBar() {
+
   const navigate = useNavigate();
   //This is where we will store our users search query as a string under the key of value
   const [searchText, setSearchText] = useState({ text: "" });
   //Our search button's destination route is unknown until we determine what type of search the user is doing...
   const [linkRoute, setLinkRoute] = useState("");
+
+  const [uriLink, setUriLink] = useState();
+
+  useEffect(()=>{
+    navigate(uriLink);
+  },[uriLink])
 
   /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -39,7 +46,7 @@ toggle between hiding and showing the dropdown content */
     var input = document.getElementById("myInput");
     var filter = input.value.toUpperCase();
     var div = document.getElementById("myDropdown");
-    var a = div.getElementsByTagName("a");
+    var a = div.getElementsByTagName("button");
     for (var i = 0; i < a.length; i++) {
       var txtValue = a[i].textContent || a[i].innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -89,7 +96,7 @@ toggle between hiding and showing the dropdown content */
     <>
       {/* Search Results Container */}
       <div>
-        <form onSubmit={() => navigate(linkRoute)}>
+        {/* <form onSubmit={() => navigate(linkRoute)}> */}
           <input
             className="search-bar"
             type="text"
@@ -101,28 +108,39 @@ toggle between hiding and showing the dropdown content */
             onKeyUp={filterFunction}
             autoComplete="off"
           />
+
           <div id="myDropdown" className="dropdown-content">
             {names &&
               names.map((name) => {
                 var namelink = `/profile/${name.name}`;
                 return (
-                  <Link
+                  <button
+                    className="dropdown-button"
                     key={name.name}
-                    to={namelink}
-                    onClick={() => setSearchText({ text: name.name })}
+                    // to={namelink}
+                    onClick={(e) =>{ 
+                      console.log(e)  
+                      setUriLink(namelink); 
+                      // setSearchText({ text: name.name})
+                      // console.log(searchText);
+                    }}
                   >
                     {name.name}
-                  </Link>
+                  </button>
                 );
               })}
          </div>
-      <Link to={linkRoute} onClick={clearSearchText} >
-        <button className="search-btn" variant="outline-success">
-          <BiSearchAlt />
+      {/* <Link to={linkRoute} onClick={clearSearchText} > */}
+        <button
+        onClick={()=>{
+          navigate(`/profile/${searchText.text}`);
+        }}
+        className="search-btn" variant="outline-success">
+          {/* <BiSearchAlt /> */}
           Search
         </button>
-      </Link>
-        </form>
+      {/* </Link> */}
+        {/* </form> */}
       </div>
     </>
   );

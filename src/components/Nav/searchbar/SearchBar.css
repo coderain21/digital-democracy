@@ -78,6 +78,14 @@
   background-color: gray !important;
 }
 
+.dropdown-button{
+  width: 100%;
+  border: none;
+  background-color: white;
+  margin-top: 10px;
+  height: 3rem;
+}
+
 /* -------- MEDIA QUERIES (MEDIUM DEVICES) --------------*/
 @media screen and (max-width: 1024px) {
 }
