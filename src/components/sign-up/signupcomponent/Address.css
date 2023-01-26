@@ -49,20 +49,20 @@
 
 .street-text{
   position:relative;  
-   right: 65px;
-    top: 10px;
+   right: 5px;
+    top: -20px;
     font-size: 20px;
 }
 .zip-text{
   position:relative;  
-  right:135px;
-  top: 10px;
+  right:5px;
+  top: 0px;
   font-size: 20px;
 }
 .input-address{
   position:relative;  
    right: 75px;
-    top: 10px;
+    top: 20px;
     width: 100%;
   
 }

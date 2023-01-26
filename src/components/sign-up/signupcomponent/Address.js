@@ -88,47 +88,38 @@ function Address({user, setUser, page, setPage}){
                     {errorMessage}
                 </p>
             }
-            <div  style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center", height: "200px"}}>
+            <div style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center", height: "200px"}}>
                 <div className='logo' >
-                <Logo className='logo-img' style={{ position:"fixed", left: "100px", top: "30px"}}/>
+                    <Logo className='logo-img' style={{ position:"fixed", left: "100px", top: "30px"}}/>
                 </div>
-                <div >
-                    <form action="#">
-                        <div >
-                            <div className='street-text'>
-                                Full Street Address
-                            </div>
-                            <div className="input-address">
-                                <input style={{  border: "1px solid black", borderRadius: "8px"}} type="text" className="" name="address" value={user.address} onClick={handleClick} onChange={handleChange} placeholder="Street Address"/>
-                            </div>
-                            <div >
-                                <ul className="list-group">
-                                    {showDropdown && suggestions.map((suggestion) => (
-                                        <li
-                                            className='list-group-item'
-                                            onClick={handleSelection}
-                                            key={suggestion}
-                                        >
-                                            {suggestion}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className='zip-text'>
-                                Or ZIP Code only for limited features
-                            </div>
-                            <div className="input-address">
-                                <input style={{ width: "60%", border: "1px solid black", borderRadius: "8px"}} type="text" className="" name="zipcode" value={user.zipcode} onClick={handleClick} onChange={handleChange} placeholder="ZIP Code"/>
-                            </div>
-                        </div>
-                        <div >
-                            <button className='next' type="submit" onClick={next} >
-                            Next
-                            </button>
-                            
-                        </div>
-                    </form>
-                </div>
+                <form action="#">
+                    <div className="input-address">
+                        <label className='street-text' htmlFor="street-address">
+                            Full Street Address
+                        </label>
+                        <input style={{  border: "1px solid black", borderRadius: "8px"}} id="street-address" type="text" className="" name="address" value={user.address} onClick={handleClick} onChange={handleChange} placeholder="Street Address"/>
+                    </div>
+                    <ul className="list-group">
+                        {showDropdown && suggestions.map((suggestion) => (
+                            <li
+                                className='list-group-item'
+                                onClick={handleSelection}
+                                key={suggestion}
+                            >
+                                {suggestion}
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="input-address">
+                        <label className='zip-text' htmlFor='zip'>
+                            Or ZIP Code only for limited features
+                        </label>
+                        <input style={{ width: "60%", border: "1px solid black", borderRadius: "8px"}} id='zip' type="text" className="" name="zipcode" value={user.zipcode} onClick={handleClick} onChange={handleChange} placeholder="ZIP Code"/>
+                    </div>
+                    <button className='next' type="submit" onClick={next} >
+                        Next
+                    </button>
+                </form>
             </div>
         </>
     )
