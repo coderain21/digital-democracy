@@ -3,10 +3,9 @@ import DistrictMap from './mapcomponent/DistrictMap'
 import "./DistrictMap.css";
 function DistrictMapPage() {
   return (
-    <>
-    <div className="mt-5" style={{textAlign: 'center'}}></div>
+    <div className='map-page'>
     <DistrictMap />
-    </>
+    </div>
   )
 }
 
