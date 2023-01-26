@@ -66,21 +66,21 @@
   .create-text{
     position:relative; 
     white-space: nowrap;
-    left:145px;
+    right:260px;
     top: 90px;
     justify-content: center;
   }
   .account-text{
     position:relative; 
     white-space: nowrap;
-    right:60px;
+    right:40px;
     top: 50px;
     justify-content: center;
   }
   .google-signup{
     position:relative; 
     white-space: nowrap;
-    right:260px;
+    left:160px;
     top: 10px;
     justify-content: center;
   }
