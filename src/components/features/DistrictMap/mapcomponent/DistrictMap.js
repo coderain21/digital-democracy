@@ -49,7 +49,7 @@ function DistrictMap({locationString = "None"}) {
                 source: 'districts',
                 paint: {
                     'line-color': '#0000ff',
-                    'line-width': 3
+                    'line-width': 1
                     }
                 }
             );
@@ -78,7 +78,7 @@ function DistrictMap({locationString = "None"}) {
                 source: 'statelower',
                 paint: {
                     'line-color': '#ff0000',
-                    'line-width': 3
+                    'line-width': 1
                     }
                 }
             );
@@ -107,7 +107,7 @@ function DistrictMap({locationString = "None"}) {
                 source: 'stateupper',
                 paint: {
                     'line-color': '#00ff00',
-                    'line-width': 3
+                    'line-width': 1 
                     }
                 }
             );
@@ -157,12 +157,12 @@ function DistrictMap({locationString = "None"}) {
         map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
         
-        map.addControl(
-            new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
-            })
-            );
+        // map.addControl(
+        //     new MapboxGeocoder({
+        //     accessToken: mapboxgl.accessToken,
+        //     mapboxgl: mapboxgl
+        //     })
+        //     );
 
         map.on('move', () => {
             setLng(map.getCenter().lng.toFixed(4));
@@ -204,15 +204,22 @@ function DistrictMap({locationString = "None"}) {
 
 
     return (
-        <div className="mt-3" style={{textAlign: 'center'}}>
-            <h3>District Map</h3>
-            <div className="sidebar">
+        <div className="map-body" style={{textAlign: 'center'}}>
+
+            {/* <h3>District Map</h3> */}
+            <div className="map-button-group">
+                <button className="btn-1" type="button" onClick={handleClick}>U.S. Congress</button>
+                <button className="btn-2" type="button" onClick={handleClick}>State House</button>
+                <button className="btn-3" type="button" onClick={handleClick}>State Senate</button>
+            </div>
+            <div className="map-container">
+                <div ref={mapContainer} className='map'/>
+            </div>
+
+            <div className="">
                 | Longitude: {lng} | Latitude: {lat} | Zoom: {zoom} |
             </div>
-            <div ref={mapContainer} className="map-container" style={{height: "400px", border: "solid black 1px" }}/>
-            <button className="btn-1" type="button" onClick={handleClick}>U.S. Congress</button>
-            <button className="btn-2" type="button" onClick={handleClick}>State House</button>
-            <button className="btn-3" type="button" onClick={handleClick}>State Senate</button>
+           
         </div>
      );
 }
