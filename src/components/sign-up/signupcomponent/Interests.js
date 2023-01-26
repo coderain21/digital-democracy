@@ -54,45 +54,41 @@ function Interests({user, setUser, page, setPage}){
             ) : (
                 <div className="" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center", height: "250px"}}>
                     <div className='logo' >
-                    <Logo className='logo-img' style={{ position:"fixed", left: "100px", top: "30px"}}/>
+                        <Logo className='logo-img' style={{ position:"fixed", left: "100px", top: "30px"}}/>
                     </div>
                     <div className="interest-text" style={{fontSize: "20px"}}>
                         Interests
                     </div>
-                    <div className="">
-                        <form action="#">
-                            <div className="interest-tabs" id="interests">
-                                {interestOptions.map((interest) => (
-                                    <div key={'checkbox' + interest}>
-                                        <input
-                                            type='checkbox'
-                                            className='btn-check'
-                                            value={interest}
-                                            id={'checkbox' + interest}
-                                            onClick={handleChange} 
-                                        />
-                                        <label
-                                            className='btn btn-primary'
-                                            htmlFor={'checkbox' + interest}
-                                        >
-                                            {interest}
-                                        </label>
-                                    </div >
-                                ))}
-                            </div>
-                            <div className='checked-text' style={{fontSize: "20px"}}>
-                                Checked interests: {user.interests.toString()}
-                            </div>
-                            <div className="">
-                                <button className='previous' type="submit" onClick={previous} >
-                                Previous
-                                </button>
-                                <button className='finish' type="submit" onClick={updateInfo} >
-                                Finish
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    <form action="#">
+                        <div className="interest-tabs">
+                            {interestOptions.map((interest) => (
+                                <div key={'checkbox' + interest}>
+                                    <input
+                                        type='checkbox'
+                                        className='btn-check'
+                                        value={interest}
+                                        id={'checkbox' + interest}
+                                        onClick={handleChange} 
+                                    />
+                                    <label
+                                        className='btn btn-primary'
+                                        htmlFor={'checkbox' + interest}
+                                    >
+                                        {interest}
+                                    </label>
+                                </div >
+                            ))}
+                        </div>
+                        <div className='checked-text' style={{fontSize: "20px"}}>
+                            Checked interests: {user.interests.toString()}
+                        </div>
+                        <button className='previous' type="submit" onClick={previous} >
+                            Previous
+                        </button>
+                        <button className='finish' type="submit" onClick={updateInfo} >
+                            Finish
+                        </button>
+                    </form>
                 </div>
             )}
         </>
