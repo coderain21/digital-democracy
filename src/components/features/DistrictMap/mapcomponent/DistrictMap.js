@@ -49,7 +49,7 @@ function DistrictMap({locationString = "None"}) {
                 source: 'districts',
                 paint: {
                     'line-color': '#0000ff',
-                    'line-width': 3
+                    'line-width': 1
                     }
                 }
             );
@@ -78,7 +78,7 @@ function DistrictMap({locationString = "None"}) {
                 source: 'statelower',
                 paint: {
                     'line-color': '#ff0000',
-                    'line-width': 3
+                    'line-width': 1
                     }
                 }
             );
@@ -107,7 +107,7 @@ function DistrictMap({locationString = "None"}) {
                 source: 'stateupper',
                 paint: {
                     'line-color': '#00ff00',
-                    'line-width': 3
+                    'line-width': 1 
                     }
                 }
             );
