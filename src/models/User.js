@@ -6,7 +6,10 @@ const UserSchema = new mongoose.Schema({
     password: String,
     address: String,
     zipcode: String,
-    interests: Array
+    interests: Array,
+    refreshToken: String,
+    resetPasswordToken: String,
+    resetPasswordTokenExpiry: Date
 })
 
 module.exports = mongoose.model('User', UserSchema);

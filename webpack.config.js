@@ -5,10 +5,9 @@ const webpack = require('webpack');
 
 module.exports = {
 
-  mode:"development",
   entry: "./src/index.js",
   output: {
-    filename: "bundle.[hash].js",
+    filename: "bundle.[fullhash].js",
     path: path.join(__dirname, "/dist"),
     publicPath: "/", 
   },
@@ -47,7 +46,7 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.png|svg|jpg|gif$/,
+        test: /\.png|jpg|gif$/,
         exclude: [/^$/, /\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
         use: ["file-loader"],
       },

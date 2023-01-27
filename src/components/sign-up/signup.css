@@ -1,0 +1,91 @@
+
+.signup{
+  position:relative;  
+   right:395px;
+    top: 130px;
+    align-items: center;
+    appearance: none;
+    background-color: rgb(15, 15, 15);
+    border-radius: 24px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    box-sizing: border-box;
+    color: #fafbfc;
+    cursor: pointer;
+    display: inline-flex;
+    fill: currentcolor;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: .25px;
+    line-height: normal;
+    width: 100%;
+    overflow: visible;
+    padding: 2px 24px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+    will-change: transform,opacity;
+    z-index: 0;
+  }
+  .logo{
+    height: 0px;
+    width: 20%;
+    float: left;
+  }
+  
+  .signup:hover {
+    background: #F6F9FE;
+    color: #080808;
+  }
+  
+  .signup:active {
+    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+    outline: none;
+  }
+  
+  .signup-text{
+    background-color: rgba(154, 150, 150, 0.3);
+    border-top: 3px solid black;
+  }  
+  .input-signup{
+    width: 200px;
+    border: 1px solid black;
+    position:relative; 
+    border-radius: 8px;
+    right:450px;
+    top: 130px;
+    justify-content: center;
+  }
+  .create-text{
+    position:relative; 
+    white-space: nowrap;
+    left:145px;
+    top: 90px;
+    justify-content: center;
+  }
+  .account-text{
+    position:relative; 
+    white-space: nowrap;
+    right:60px;
+    top: 50px;
+    justify-content: center;
+  }
+  .google-signup{
+    position:relative; 
+    white-space: nowrap;
+    right:260px;
+    top: 10px;
+    justify-content: center;
+  }
+  .pass-strength{
+    position:relative;  
+   right:450px;
+    top: 130px;
+  }

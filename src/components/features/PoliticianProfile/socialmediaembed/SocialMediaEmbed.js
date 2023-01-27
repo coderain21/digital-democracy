@@ -17,12 +17,12 @@ function SocialMediaEmbed({politician}) {
           margin: "auto",
         }}
       >
-        <h2>Recent Activity</h2>
+        <h2 style={{ fontFamily: "Times New Roman"}}>Recent Activity</h2>
       </div>
       <div className="row">
         <div
           className="col-12 col-lg-6 mt-3 mb-3"
-          style={{ textAlign: "center", margin: "auto" }}
+          style={{ textAlign: "center", margin: "auto",  fontFamily: "Times New Roman",borderRadius:"2px" }}
         >
           <TwitterTimelineEmbed
             sourceType="profile"
@@ -39,9 +39,9 @@ function SocialMediaEmbed({politician}) {
                       <iframe
                       title={facebookSRC}
                       src={facebookSRC}
-                      width="500"
+                      width="468"
                       height="600"
-                      style={{ border: "none", overflow: "hidden" }}
+                      style={{ border: "none", overflow: "hidden", borderRadius: "14px"}}
                       scrolling="no"
                       frameBorder="0"
                       allowFullScreen={true}
@@ -53,7 +53,8 @@ function SocialMediaEmbed({politician}) {
             {politician.youtube && (
               <iframe
                 title={Math.random()}
-                width="600"
+                width="468"
+                style={{ border: "none", overflow: "hidden", borderRadius: "14px"}}
                 height="340"
                 src={youtubeVidSrc}
                 frameborder="0"

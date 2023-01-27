@@ -16,11 +16,41 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+  
     
 }
 
+
 .namefont {
+    font-family: "Times New Roman", Times, serif;
     font-weight: bold;
     font-size: 80px;
+    background-color: transparent;
+}
+.btn-container > button{
+/* justify-content: center; */
+
+/* align-items: center; */
+grid-template-columns: auto auto;
+gap: 2rem;
+
+display: grid;
+grid-template-columns: auto auto;
+gap: 2rem;
 }
 
+.btn {
+    border: 2px solid black;
+    width: 50%;
+    border-radius: 50px;
+    grid-template-rows: auto auto;
+gap: 2rem;
+
+display: grid;
+
+    
+    
+}
+@media screen and (max-width: 503px){
+    
+}

@@ -1,10 +1,18 @@
-import React, { useEffect } from 'react';
+import React, {useState, useContext} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import './interests.css';
+import Logo from './logo.svg';
+import AuthContext from '../../../context/AuthContext';
 
 function Interests({user, setUser, page, setPage}){
+    const navigate = useNavigate();
+    const {auth} = useContext(AuthContext);
+    const [success, setSuccess] = useState(false);
+    // interests array needs to be updated with desired values
+    const interestOptions = ['technology', 'economy', 'environment'];
+
     const handleChange = () => {
-        console.log("handle change");
         var array = [];
         var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
 
@@ -12,82 +20,83 @@ function Interests({user, setUser, page, setPage}){
             array.push(checkboxes[i].value);
         }
         setUser({
-            ...user,//spread operator 
+            ...user,
             interests: array
-            });
-    }
-    
-    const navigate = useNavigate();
-    const navigateToHome = ()=>{
-        navigate('/');
+        });
     }
 
     const updateInfo = async (e) => {
         e.preventDefault();
         const {name,email,password} = user;
         if (name && email && password){
-            await axios.put("http://localhost:8000/user", user);
-            navigateToHome();
-            alert("Signup successful");
-        }
-        else{
-            alert("Invalid input")
+            const res = await axios.put("http://localhost:8000/user", user, {
+                headers: {
+                    'Authorization': 'Bearer ' + auth.accessToken
+                }});
+            console.log(res.data.message);
+            setSuccess(true)
+            setTimeout(() => {
+                navigate('/');
+            }, 2000);
         }
     }
 
     const previous = () => {
         setPage(page - 1);
-    };
+    }
 
-
-    const interestOptions = ['technology', 'economy', 'environment'];
-
-    useEffect(() => {
-        const interests = document.getElementById('interests')
-        if (interests.children.length=== 0){
-            for (var i = 0; i < interestOptions.length; i++){
-                var x = document.createElement("INPUT");
-                x.setAttribute("type", "checkbox");
-                x.className = 'btn-check';
-                x.value = interestOptions[i];
-                x.id = 'checkbox-' + interestOptions[i];
-                x.addEventListener('click',handleChange);
-                var y = document.createElement('LABEL');
-                y.textContent = interestOptions[i];
-                y.className = 'btn btn-primary';
-                y.setAttribute('for', x.id);
-                interests.appendChild(x);
-                interests.appendChild(y);
-            }
-        }
-        console.log('added buttons');
-    });
-
-    return ( 
-        <div className="row text-center">
-            <div className="col-md-12">
-                Interests
-            </div>
-            <div className="col-md-12">
-                <form action="#">
-                      <div className="input-group d-inline-flex flex-column w-25" id="interests">
-                      </div>
-                      <div>
-                        Checked interests: {user.interests.toString()}
-                      </div>
-                      <div className="container">
-                        <button type="submit" onClick={previous} >
-                          Previous
-                        </button>
-                        <button type="submit" onClick={updateInfo} >
-                          Finish
-                        </button>
-                      </div>
-                </form>
-            </div>
-        </div>
-      
-        )  
+    return (
+        <> 
+            {success ? (
+                <p>
+                    Signup successful
+                </p>
+            ) : (
+                <div className="" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center", height: "250px"}}>
+                    <div className='logo' >
+                    <Logo className='logo-img' style={{ position:"fixed", left: "100px", top: "30px"}}/>
+                    </div>
+                    <div className="interest-text" style={{fontSize: "20px"}}>
+                        Interests
+                    </div>
+                    <div className="">
+                        <form action="#">
+                            <div className="interest-tabs" id="interests">
+                                {interestOptions.map((interest) => (
+                                    <div key={'checkbox' + interest}>
+                                        <input
+                                            type='checkbox'
+                                            className='btn-check'
+                                            value={interest}
+                                            id={'checkbox' + interest}
+                                            onClick={handleChange} 
+                                        />
+                                        <label
+                                            className='btn btn-primary'
+                                            htmlFor={'checkbox' + interest}
+                                        >
+                                            {interest}
+                                        </label>
+                                    </div >
+                                ))}
+                            </div>
+                            <div className='checked-text' style={{fontSize: "20px"}}>
+                                Checked interests: {user.interests.toString()}
+                            </div>
+                            <div className="">
+                                <button className='previous' type="submit" onClick={previous} >
+                                Previous
+                                </button>
+                                <button className='finish' type="submit" onClick={updateInfo} >
+                                Finish
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+        </>
+    )
 }
 
 export default Interests
