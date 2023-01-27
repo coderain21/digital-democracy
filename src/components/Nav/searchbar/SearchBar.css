@@ -77,10 +77,7 @@
  
 }
 
-form  {
- display:flex;
- align-items:center;
-}
+
 
 .search-btn:hover {
   background-color: gray !important;
@@ -107,11 +104,11 @@ form  {
 
 /* -------- MEDIA QUERIES (MEDIUM DEVICES) --------------*/
 @media screen and (max-width: 991px) and (max-width: 1024px) {
-    form  {
- display:flex;
- align-items:center;
- justify-content: center;
-}
+  .search-bar-body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* -------- MEDIA QUERIES (SMALL DEVICES) --------------*/
