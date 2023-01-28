@@ -7,7 +7,6 @@
 }
 .login {
   position:relative; 
-  left: 70px;
   color: rgb(7, 7, 7);
   align-items: center;
   appearance: none;
@@ -50,28 +49,22 @@
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
 }
-.logo{
-  height: 0px;
-  width: 20%;
-  float: left;
-  
-  
-}
+
 .google-sign-in{
   position:relative; 
-  right:90px;
   color: rgb(7, 7, 7);
 
 }
 .login-text{
   position:relative; 
-  left: -110px;
   color: rgb(7, 7, 7);
 }
 
 
 .login-body{
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .input-login{
   width: 100%;
@@ -86,6 +79,5 @@
   left: 0px;
 }
 .email-text{
-  position:relative; 
-  left: -110px;
+  position:relative;
 }
