@@ -100,59 +100,47 @@ function ProfileInfo({user, setUser, page, setPage}){
                 </p>
             }
             <div  style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center", height: "350px"}}>
-            <div className='logo' >
-                <Logo className='logo-img' style={{ position:"fixed", left: "100px"}}/>
+                <div className='logo' >
+                    <Logo className='logo-img' style={{ position:"fixed", left: "100px"}}/>
                 </div>
-                <div className="create-text" style={{fontSize: "20px"}}>
-                    Create a new account
+                <div className="google-signup" >
+                    <GoogleLoginComponent >
+                    </GoogleLoginComponent>
                 </div>
-                <span className="account-text">
+                <div className="account-text">
                     Already have an account?
                     <a href="/login" className="link-primary">
                         Login
                     </a>
-                </span>
-                <div className="google-signup" >
-                <GoogleLoginComponent >
-                </GoogleLoginComponent>
                 </div>
-                <div >
-                    <form action="#">
-                        <div >
-                            <div className="input-signup">
-                                <input type="text" autoComplete="name" className="form-control" name="name" value={user.name} onChange={handleChange} placeholder="Full Name"/>
-                            </div>
-                        </div>
-                        
-                        <div >
-                            <div className="input-signup">
-                            <input type="text" autoComplete="email" className="form-control" name="email" value={user.email} onChange={handleChange} placeholder="Email"/>
-                            </div>
-                        </div>
-                        <div >
-                            <div className="input-signup">
-                            <input type="password" autoComplete="new-password" className="form-control" name="password" value={user.password} onChange={handleChange} placeholder="password"/>
-                            </div>
-                            <PasswordStrengthBar className='pass-strength'
-                                password={user.password}
-                                onChangeScore={onChangeScore} />
-                        </div>
-                        <div >
-                            <ReCAPTCHA
-                                size="invisible"
-                                sitekey="6Lf02yQjAAAAACG2joKuBxO9nGQBjTvBmHpU4AY_"
-                                ref={recaptchaRef}
-                                onChange={signup}
-                            />
-                            <button className='signup' type="submit" onClick={handleRecaptcha} >
-                            Sign up
-                            </button>
-                        </div>
-                    </form>
+                <div className="create-text" style={{fontSize: "20px"}}>
+                        Create a new account
                 </div>
+                <form action="#">
+                    <div className="input-signup">
+                        <input type="text" autoComplete="name" className="form-control" name="name" value={user.name} onChange={handleChange} placeholder="Full Name"/>
+                    </div>
+                    <div className="input-signup">
+                        <input type="text" autoComplete="email" className="form-control" name="email" value={user.email} onChange={handleChange} placeholder="Email"/>
+                    </div>
+                    <div className="input-signup">
+                    <input type="password" autoComplete="new-password" className="form-control" name="password" value={user.password} onChange={handleChange} placeholder="password"/>
+                    </div>
+                    <PasswordStrengthBar className='pass-strength'
+                        password={user.password}
+                        onChangeScore={onChangeScore} />
+                    <ReCAPTCHA
+                        size="invisible"
+                        sitekey="6Lf02yQjAAAAACG2joKuBxO9nGQBjTvBmHpU4AY_"
+                        ref={recaptchaRef}
+                        onChange={signup}
+                    />
+                    <button className='signup' type="submit" onClick={handleRecaptcha} >
+                        Sign up
+                    </button>
+                </form>
             </div>
-        </>
-      
+        </> 
     )} 
 
 export default ProfileInfo
