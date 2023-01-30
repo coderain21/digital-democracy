@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import names from "./searchNames";
 import Button from "react-bootstrap/Button";
 import { BiSearchAlt } from 'react-icons/bi';
+import SearchGlass from './assets/magnify.svg'
 
 import "./SearchBar.css";
 
@@ -95,8 +96,10 @@ toggle between hiding and showing the dropdown content */
   return (
     <>
       {/* Search Results Container */}
-      <div>
+      <div className="search-bar-body">
         {/* <form onSubmit={() => navigate(linkRoute)}> */}
+
+        <div style={{width:'70%'}}>
           <input
             className="search-bar"
             type="text"
@@ -130,15 +133,25 @@ toggle between hiding and showing the dropdown content */
                 );
               })}
          </div>
+
+         </div>
       {/* <Link to={linkRoute} onClick={clearSearchText} > */}
+
+
+      <SearchGlass  onClick={()=>{
+          navigate(`/profile/${searchText.text}`);
+        }}
+         className='search-button'/>
+{/*       
         <button
         onClick={()=>{
           navigate(`/profile/${searchText.text}`);
         }}
         className="search-btn" variant="outline-success">
-          {/* <BiSearchAlt /> */}
+           <BiSearchAlt />
           Search
         </button>
+    */}
       {/* </Link> */}
         {/* </form> */}
       </div>
