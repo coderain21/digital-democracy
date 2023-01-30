@@ -28,7 +28,7 @@ function Navigation() {
           >
           <Nav.Link className="pcf-link" href="/comparison">Comparison</Nav.Link>
           
-          <Nav.Link className="pcf-link" href="/comparison">Map</Nav.Link>
+          <Nav.Link className="pcf-link" href="/districtmap">Map</Nav.Link>
 
         {isLoggedIn &&
 
