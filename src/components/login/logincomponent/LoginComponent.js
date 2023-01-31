@@ -18,7 +18,7 @@ function LoginComponent () {
 
     useEffect(() => {
         setErrorMessage(null);
-    }, [user.name, user.password])
+    }, [user.email, user.password])
 
     const handleChange = e =>{
         const {name,value} = e.target;
@@ -66,67 +66,66 @@ function LoginComponent () {
     return (
         <>
             {errorMessage && 
-                <p>
+                <p className='error-msg'>
                     {errorMessage}
                 </p>
             }
-            <div className="login-body" style={{backgroundColor: "rgba(154, 150, 150, 0.3)", borderBottom: "3px solid black", display: "flex", justifyContent: "center",borderTop: "3px solid black", height: "380px"}}>
-                <Logo className='logo-img' style={{ position:"fixed", left: "100px"}}/>
-                <div className="login-text" style={{fontSize: "23px"}}>
-                    Login To Your Account
-                </div>
-                <GoogleLoginComponent className="google-sign-in">
-                </GoogleLoginComponent>
-                <form action="#" autoComplete="off" className='email-text' style={{textAlign: "center"}}>
-                    <p style={{textAlign: "center", fontSize: "20px"}}>
-                        Enter email and password
-                    </p>
-                    <input 
-                        type="text" 
-                        autoComplete="email" 
-                        className="input-login form-control" 
-                        style={{border: "1px solid black", borderRadius: "7px"}} 
-                        name="email" 
-                        value={user.email}  
-                        onChange={handleChange} 
-                        placeholder="Your email"
-                    />
-                    <input 
-                        type="password" 
-                        autoComplete="current-password" 
-                        className="input-login form-control" 
-                        style={{border: "1px solid black", borderRadius: "7px", margin: "30px 0" }} 
-                        name="password" 
-                        value={user.password}  
-                        onChange={handleChange} 
-                        placeholder="Your password"
-                    />
-                    <a href="/forgotpassword" className="forgot-link link-primary">
-                        Forgot Your Password?
-                    </a>
-                    <button 
-                        type="button" 
-                        className=" sign-link btn btn-link" 
-                        style={{textAlign: "center"}} 
-                        onClick={() => navigate('/signup')}
-                    >
-                        Sign Up?
-                    </button>
-                    <ReCAPTCHA
-                        size="invisible"
-                        sitekey="6Lf02yQjAAAAACG2joKuBxO9nGQBjTvBmHpU4AY_"
-                        ref={recaptchaRef}
-                        onChange={login}
-                    />
-                    <button 
-                        className='login' 
-                        type="submit" 
-                        onClick={handleRecaptcha}
-                    >
-                        Login
-                    </button>
-                </form>
-            </div>
+            <main className='login-main'>
+                <Logo className='logo-img'/>
+                <section className="login-body" >
+                    <div className="login-text">
+                        Login To Your Account
+                    </div>
+                    <GoogleLoginComponent className="google-sign-in">
+                    </GoogleLoginComponent>
+                    <form action="#" autoComplete="off">
+                        <p className='enter-text'>
+                            Enter email and password
+                        </p>
+                        <input 
+                            type="text" 
+                            autoComplete="email" 
+                            className="input-login form-control" 
+                            name="email" 
+                            value={user.email}  
+                            onChange={handleChange} 
+                            placeholder="Your email"
+                        />
+                        <input 
+                            type="password" 
+                            autoComplete="current-password" 
+                            className="input-login form-control" 
+                            name="password" 
+                            value={user.password}  
+                            onChange={handleChange} 
+                            placeholder="Your password"
+                        />
+                        <a href="/forgotpassword" className="link-primary">
+                            Forgot Your Password?
+                        </a>
+                        <button 
+                            type="button" 
+                            className="btn btn-link" 
+                            onClick={() => navigate('/signup')}
+                        >
+                            Sign Up?
+                        </button>
+                        <ReCAPTCHA
+                            size="invisible"
+                            sitekey="6Lf02yQjAAAAACG2joKuBxO9nGQBjTvBmHpU4AY_"
+                            ref={recaptchaRef}
+                            onChange={login}
+                        />
+                        <button 
+                            className='login' 
+                            type="submit" 
+                            onClick={handleRecaptcha}
+                        >
+                            Login
+                        </button>
+                    </form>
+                </section>
+            </main>
         </>
     )
 }

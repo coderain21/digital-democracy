@@ -1,9 +1,40 @@
+.error-msg {
+  text-align: center;
+}
+.login-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(154, 150, 150, 0.3);
+  border-bottom: 3px solid black;
+  border-top: 3px solid black; 
+  height: 460px;
+}
+.logo-img{
+  flex-basis: 30%;
+}
+.login-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 30%;
+  text-align: center;
+}
+.login-text{
+  color: rgb(7, 7, 7);
+  font-size: 23px;
+}
+.google-sign-in{ 
+  color: rgb(7, 7, 7);
 
-.container{
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-   
+}
+.enter-text {
+  font-size: 20px;
+}
+.input-login{
+  border: 1px solid black;
+  border-radius: 7px;
+  margin: 30px 0;
 }
 .login {
   position:relative; 
@@ -49,35 +80,8 @@
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
 }
-
-.google-sign-in{
-  position:relative; 
-  color: rgb(7, 7, 7);
-
-}
-.login-text{
-  position:relative; 
-  color: rgb(7, 7, 7);
-}
-
-
-.login-body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.input-login{
-  width: 100%;
-  position:relative; 
-  left: 0px;
-}
-.logo-img{
-  float: left;
-}
-.forgot-link{
-  position:relative; 
-  left: 0px;
-}
-.email-text{
-  position:relative;
+@media all and (max-width: 480px) {
+  .logo-img {
+      display: none;
+  }
 }
